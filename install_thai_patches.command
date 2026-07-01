@@ -68,38 +68,44 @@ def main():
         # Get the actual folder name of the mod (e.g. [CP] Additional Farm Cave)
         mod_folder_name = os.path.basename(repo_mod_folder)
         
-        # Check if the mod folder exists in user's Mods directory
-        target_mod_folder = os.path.join(mods_dir, mod_folder_name)
+        # 1. Check direct relative path (nested structure like Mods/Additional Farm Cave/[CP] Additional Farm Cave)
+        rel_mod_path = os.path.relpath(repo_mod_folder, repo_mods_dir)
+        target_mod_folder_nested = os.path.join(mods_dir, rel_mod_path)
         
-        # Also try to check without the wrapper if it's nested differently (e.g. parent folder check)
-        # But checking mod_folder_name directly is the most standard
-        if os.path.exists(target_mod_folder) and os.path.isdir(target_mod_folder):
+        # 2. Check flat folder name (flat structure like Mods/[CP] Additional Farm Cave)
+        target_mod_folder_flat = os.path.join(mods_dir, mod_folder_name)
+        
+        target_mod_folder = None
+        if os.path.exists(target_mod_folder_nested) and os.path.isdir(target_mod_folder_nested):
+            target_mod_folder = target_mod_folder_nested
+        elif os.path.exists(target_mod_folder_flat) and os.path.isdir(target_mod_folder_flat):
+            target_mod_folder = target_mod_folder_flat
+            
+        if target_mod_folder:
             print(f"📦 พบม็อด: {BOLD}{mod_folder_name}{ENDC}")
             
-            # Find th.json or th folder inside repo_mod_folder
-            th_json_files = glob.glob(os.path.join(repo_mod_folder, "**/th.json"), recursive=True)
-            th_folders = glob.glob(os.path.join(repo_mod_folder, "**/th"), recursive=True)
+            # Find th.json or th folder inside repo_mod_folder (escaping wildcards like [CP])
+            escaped_repo_mod_folder = glob.escape(repo_mod_folder)
+            th_json_files = glob.glob(os.path.join(escaped_repo_mod_folder, "**/th.json"), recursive=True)
+            th_folders = glob.glob(os.path.join(escaped_repo_mod_folder, "**/th"), recursive=True)
             
             copied = False
             
             # Copy th.json files
             for file_path in th_json_files:
-                # Find relative path from repo_mod_folder
                 rel_path = os.path.relpath(file_path, repo_mod_folder)
                 dest_path = os.path.join(target_mod_folder, rel_path)
                 
-                # Ensure destination directory exists
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 shutil.copy2(file_path, dest_path)
                 print(f"  {GREEN}✓{ENDC} ติดตั้ง: {rel_path}")
                 copied = True
                 
-            # Copy contents of 'th' folders (e.g. for mods like Sword & Sorcery)
+            # Copy contents of 'th' folders
             for folder_path in th_folders:
                 rel_folder_path = os.path.relpath(folder_path, repo_mod_folder)
                 dest_folder_path = os.path.join(target_mod_folder, rel_folder_path)
                 
-                # Copy all files from the 'th' folder
                 os.makedirs(dest_folder_path, exist_ok=True)
                 for item in os.listdir(folder_path):
                     src_item = os.path.join(folder_path, item)
