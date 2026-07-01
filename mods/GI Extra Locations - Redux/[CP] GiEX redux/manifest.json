@@ -1,0 +1,40 @@
+{
+  "Name": "GI Extra locations - ContentPatcher",
+  "Author": "mistyspring",
+  "Version": "1.5.1",
+  "Description": "A remake of Ginger Island Extra Locations.",
+  "UniqueID": "mistyspring.GiEXredux",
+  "MinimumApiVersion": "4.4.0",
+  "UpdateKeys": [
+    "nexus:42648"
+  ],
+  "Dependencies": [
+    {
+      "UniqueID": "Lnh.IslandOverhaul",
+      "IsRequired": false
+    },
+    {
+      "UniqueID":"DLX.Bundles",
+      "IsRequired":true
+    },
+    {
+      "UniqueID":"mistyspring.mistycore",
+      "IsRequired":true
+    },
+    {
+      "UniqueID":"mistyspring.ItemExtensions",
+      "IsRequired":true
+    },
+    {
+      "UniqueID": "mistyspring.GiEXredux.code",
+      "IsRequired": true
+    },
+    {
+      "UniqueID":"spacechase0.SpaceCore",
+      "IsRequired": true
+    }
+  ],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  }
+}

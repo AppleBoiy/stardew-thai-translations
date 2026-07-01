@@ -1,0 +1,408 @@
+{
+	// Settings
+	"setting.show-adv": "แสดงข้อมูลการคราฟต์ขั้นสูง",
+	"setting.show-adv.tip": "แสดงข้อมูลการคราฟต์ขั้นสูง เช่น คุณมีวัตถุดิบเท่าไหร่ และคุณเคยคราฟต์สูตรนั้นมาแล้วกี่ครั้ง นี่เป็นค่าเดียวกับในการตั้งค่าของเกมหลัก ซึ่งคัดลอกมาไว้ที่นี่เพื่อความสะดวก",
+
+	"setting.use-per-save": "ใช้ข้อมูลแยกตามเซฟ",
+	"setting.use-per-save.tip": "เมื่อเปิดใช้งาน หมวดหมู่และรายการโปรดของคุณจะถูกติดตามแยกตามแต่ละเซฟ หากปิดใช้งาน จะใช้ข้อมูลเดียวกันสำหรับทุกเซฟของคุณ โปรดทราบว่าสูตรที่เคยเห็นแล้วจะเป็นแบบแยกตามเซฟเสมอ",
+
+	"setting.general": "ตัวเลือกทั่วไป",
+
+	"setting.priority": "ลำดับความสำคัญของเมนู",
+	"setting.priority.tip": "การเปลี่ยนลำดับความสำคัญของเมนูอาจช่วยปรับปรุงความเข้ากันได้ของ Better Crafting กับมอดอื่นๆ เมื่อตั้งเป็น Low (ต่ำ) Better Crafting จะประมวลผลเมนูหลังจากมอดอื่น เมื่อตั้งเป็น High (สูง) Better Crafting จะประมวลผลก่อนมอดอื่น",
+
+	"setting.priority.low": "ต่ำ",
+	"setting.priority.normal": "ปกติ",
+	"setting.priority.high": "สูง",
+
+	"setting.theme": "ธีม UI",
+	"setting.theme-desc": "ธีม UI นี้จะถูกใช้สำหรับปุ่มต่างๆ ของ Better Crafting โปรดทราบว่า UI ส่วนใหญ่ของ Better Crafting จะใช้พื้นผิวจากเกมหลัก",
+
+	"setting.use-full-height": "ใช้ความสูงเต็มหน้าจอ",
+	"setting.use-full-height.tip": "เมื่อเปิดใช้งาน เมนู Better Crafting จะขยายจนเต็มความสูงของหน้าจอเมื่อไม่ได้เปิดผ่านเมนูในเกม",
+
+	"theme.automatic": "อัตโนมัติ",
+	"theme.default": "ค่าเริ่มต้น",
+
+	"setting.gift-taste-style": "รูปแบบรสนิยมของขวัญ",
+	"setting.gift-taste-style.heads": "รูปใบหน้า",
+	"setting.gift-taste-style.names": "ชื่อ",
+	"setting.gift-taste-style.tip": "เมื่อตั้งเป็นรูปใบหน้า รสนิยมของขวัญจะแสดงโดยใช้รูปใบหน้าของตัวละครแต่ละตัว เมื่อตั้งเป็นชื่อ ระบบจะแสดงเป็นชื่อแทน",
+
+	"setting.gift-taste": "แสดงรสนิยมของขวัญ",
+	"setting.gift-taste.tip": "เมื่อเปิดใช้งาน รสนิยมของขวัญที่ทราบแล้วจะแสดงในคำอธิบายไอเทมเพื่อความสะดวก รสนิยมของขวัญที่ตรงกันจะแสดงเสมอเมื่อค้นหา",
+	"setting.gift-taste.never": "ไม่แสดง",
+	"setting.gift-taste.shift": "เมื่อกดปุ่ม Shift ค้างไว้",
+	"setting.gift-taste.always": "แสดงเสมอ",
+
+	"setting.gift-taste-all": "แสดงรสนิยมของขวัญที่ยังไม่พบ",
+	"setting.gift-taste-all.tip": "เมื่อเปิดใช้งาน Better Crafting จะแสดงรสนิยมของขวัญทั้งหมด แม้กระทั่งสิ่งที่คุณยังไม่เคยพบในเกม ซึ่งอาจถือว่าเป็นการโกงเล็กน้อย จึงถูกปิดไว้เป็นค่าเริ่มต้น",
+
+	"setting.alphabetic": "เรียงตามตัวอักษร",
+	"setting.alphabetic.tip": "เมื่อเปิดใช้งาน สูตรคราฟต์จะถูกเรียงตามตัวอักษรแทนที่จะใช้ลำดับค่าเริ่มต้นของเกม",
+
+	"setting.replace-crafting": "แทนที่เมนูคราฟต์",
+	"setting.replace-crafting.tip": "เมื่อเปิดใช้งาน เมนูคราฟต์จะถูกแทนที่ด้วยระบบใหม่ของมอด",
+
+	"setting.replace-cooking": "แทนที่เมนูทำอาหาร",
+	"setting.replace-cooking.tip": "เมื่อเปิดใช้งาน เมนูทำอาหารจะถูกแทนที่ด้วยระบบใหม่ของมอด",
+
+	"setting.enable-categories": "เปิดใช้งานหมวดหมู่",
+	"setting.enable-categories.tip": "แสดงแท็บหมวดหมู่ในเมนูคราฟต์ แทนที่จะเป็นรายการยาวรายการเดียว",
+
+	"setting.new-recipes": "ไฮไลต์สูตรใหม่",
+	"setting.new-recipes.tip": "เมื่อเปิดใช้งาน สูตรใหม่จะมีป้าย 'NEW' กำกับไว้",
+	"setting.new-recipes.uncrafted": "ยังไม่ได้คราฟต์",
+	"setting.new-recipes.unseen": "ยังไม่เคยเห็น",
+	"setting.new-recipes.disabled": "ปิดใช้งาน",
+
+	"setting.new-recipes.prismatic": "ป้าย 'NEW' หลากสี",
+	"setting.new-recipes.prismatic.tip": "เมื่อเปิดใช้งาน ป้าย 'NEW' บนสูตรอาหารจะแสดงสีที่เปลี่ยนไปเรื่อยๆ",
+
+	"setting.settings": "แสดงปุ่มตั้งค่า",
+	"setting.settings.tip": "เมื่อเปิดใช้งาน ปุ่มสำหรับเปิดการตั้งค่า Better Crafting จะถูกเพิ่มเข้าไปในเมนู Better Crafting",
+
+	"setting.show-edit": "แสดงปุ่มแก้ไขหมวดหมู่",
+	"setting.show-edit.tip": "เมื่อเปิดใช้งาน ปุ่มสำหรับแก้ไขหมวดหมู่จะปรากฏขึ้นเมื่อสามารถแก้ไขหมวดหมู่นั้นๆ ได้",
+
+	"setting.bindings": "ปุ่มลัดและการกระทำ",
+	"setting.bindings.tip": "การตั้งค่าที่เกี่ยวข้องกับการรับคำสั่งและปุ่มลัด",
+
+	"setting.suppress": "ปุ่มปิดการใช้งาน",
+	"setting.suppress.tip": "เมื่อกดปุ่มนี้ค้างไว้แล้วเปิดเมนูคราฟต์ Better Crafting จะไม่ทำการแทนที่เมนูนั้น",
+
+	"setting.key.modifier": "ปุ่มปรับเปลี่ยน (Modifier Key)",
+	"setting.key.modifier.tip": "กดปุ่มนี้ค้างไว้เพื่อเปลี่ยนการกระทำของปุ่มอื่นเมื่อใช้งานได้",
+
+	"setting.key.search": "ปุ่มค้นหา",
+	"setting.key.search.tip": "กดปุ่มนี้เพื่อเปิดการค้นหาเพื่อกรองสูตรที่แสดง",
+
+	"setting.key.favorite": "ปุ่มรายการโปรด",
+	"setting.key.favorite.tip": "กดปุ่มนี้ที่สูตรอาหารเพื่อเพิ่มหรือลบออกจากรายการโปรด",
+
+	"setting.key.bulk": "ปุ่มคราฟต์จำนวนมาก",
+	"setting.key.bulk.tip": "กดปุ่มนี้ที่สูตรอาหารเพื่อเปิดหน้าต่างคราฟต์หรือทำอาหารจำนวนมาก",
+
+	"setting.key.behavior.left": "พฤติกรรมเมื่อคลิกซ้าย / ปุ่ม A",
+	"setting.key.behavior.left.tip": "เมื่อคลิกซ้าย (หรือกดปุ่ม A บนคอนโทรลเลอร์) ที่สูตรอาหาร การกระทำนี้จะเกิดขึ้น",
+	"setting.key.behavior.right": "พฤติกรรมเมื่อคลิกขวา / ปุ่ม X",
+	"setting.key.behavior.right.tip": "เมื่อคลิกขวา (หรือกดปุ่ม X บนคอนโทรลเลอร์) ที่สูตรอาหาร การกระทำนี้จะเกิดขึ้น",
+
+	"setting.key.tooltip": "แสดงปุ่มลัดในคำอธิบายไอเทม",
+	"setting.key.tooltip.tip": "เมื่อเปิดใช้งาน ปุ่มลัดจะแสดงที่ด้านล่างของคำอธิบายไอเทมใน Better Crafting",
+
+	"setting.show-matching-items": "แสดงไอเทมที่ใช้ได้",
+	"setting.show-matching-items.never": "ไม่แสดง",
+	"setting.show-matching-items.always": "แสดงเสมอ",
+	"setting.show-matching-items.fuzzy": "วัตถุดิบแบบคลุมเครือ",
+	"setting.show-matching-items.fuzzy-quality": "วัตถุดิบแบบคลุมเครือ/คุณภาพสูง",
+	"setting.show-matching-items.tip": "ว่าจะแสดงรายการไอเทมที่จะถูกใช้ในการคราฟต์หรือไม่ 'Fuzzy' หมายถึงวัตถุดิบที่ใช้แทนกันได้ เช่น 'ไข่ (อะไรก็ได้)' และคุณภาพสูงหมายถึงไอเทมที่มีคุณภาพสูงกว่าระดับพื้นฐาน",
+
+	"setting.source-mod": "แสดงชื่อมอดต้นทางในคำอธิบาย",
+	"setting.source-mod.tip": "เมื่อเปิดใช้งาน มอดที่เพิ่มไอเทมชิ้นนั้นจะแสดงที่ด้านล่างของคำอธิบายไอเทมใน Better Crafting",
+
+	"setting.enforce-multiplayer": "บังคับความสมดุลในโหมดเล่นหลายคน",
+	"setting.enforce-multiplayer.tip": "เมื่อเปิดใช้งาน ตัวเลือกที่อาจถือว่าโกงได้จะถูกควบคุมโดยโฮสต์ของผู้เล่นหลายคนเท่านั้น ซึ่งรวมถึง 'การกู้คืนขยะ', การรีไซเคิล และการแสดงรสนิยมของขวัญ",
+
+	"setting.ttwhen.Never": "ไม่แสดง",
+	"setting.ttwhen.ForController": "เมื่อใช้คอนโทรลเลอร์",
+	"setting.ttwhen.Always": "แสดงเสมอ",
+
+	"setting.action.None": "ไม่มีอะไรเกิดขึ้น",
+	"setting.action.Craft": "คราฟต์",
+	"setting.action.Purchase": "ซื้อ",
+	"setting.action.Favorite": "สลับรายการโปรด",
+	"setting.action.BulkPurchase": "ซื้อจำนวนมาก",
+	"setting.action.BulkCraft": "คราฟต์จำนวนมาก",
+	"setting.action.BulkCook": "ทำอาหารจำนวนมาก",
+
+	"setting.invalid-storage-types": "ประเภทที่เก็บของที่ไม่อนุญาต",
+	"setting.invalid-storage-types.tip": "ช่วยให้คุณปิดใช้งานที่เก็บของบางประเภท (หีบ, Hopper, ฯลฯ) ไม่ให้ถูกนำมาใช้งาน",
+
+	"setting.disable-fish-sources": "ไม่ใช้ตู้ปลาและบ่อปลา",
+	"setting.disable-fish-sources.tip": "เมื่อเปิดใช้งาน Better Crafting จะพยายามไม่ใช้ตู้ปลาหรือบ่อปลาเป็นแหล่งวัตถุดิบ โปรดทราบว่าวิธีนี้อาจใช้ไม่ได้ผลในบางกรณีขึ้นอยู่กับว่ามอดอื่นเชื่อมต่อข้อมูลเหล่านี้อย่างไร",
+
+	"setting.nearby": "โต๊ะทำงานขยายระยะ",
+	"setting.nearby.tip": "ฟีเจอร์นี้ช่วยให้โต๊ะทำงานและห้องครัวของคุณเชื่อมต่อกับหีบได้มากขึ้นพร้อมกัน ปรับปรุงจากระยะเริ่มต้นของเกมที่ได้เพียงหนึ่งช่อง คุณสามารถสร้างโซ่การเชื่อมต่อหีบ หรือใช้ตัวเชื่อมต่อเพื่อข้ามช่องว่างได้",
+
+	"setting.nearby.enable": "เปิดใช้งานโต๊ะทำงานขยายระยะ",
+
+	"setting.nearby.nearby": "ใช้หีบใกล้เคียง",
+	"setting.nearby.nearby.tip": "หากค่านี้มากกว่าศูนย์ คุณจะสามารถใช้งานไอเทมในหีบได้ในระยะสูงสุดตามจำนวนช่องที่ตั้งไว้ ในโหมด \"World\" คุณจะสามารถใช้หีบได้ทั่วทั้งแผนที่ตราบใดที่ตำแหน่งนั้นถูกโหลดอยู่ สำหรับโหมดผู้เล่นหลายคน หมายถึงตำแหน่งปัจจุบันของคุณและในฟาร์ม",
+
+	"setting.nearby.nearby.active": "ทั่วโลก (World)",
+	"setting.nearby.nearby.map": "ทั้งแผนที่",
+	"setting.nearby.nearby.off": "ปิด",
+	"setting.nearby.nearby.tiles": "{{tiles}} ช่อง",
+
+	"setting.nearby.diagonal": "อนุญาตการเชื่อมต่อแนวทแยง",
+	"setting.nearby.diagonal.tip": "เมื่อเปิดใช้งาน หีบและตัวเชื่อมต่อจะวางในแนวทแยงและยังเชื่อมต่อกันได้",
+
+	"setting.nearby.performance": "ประสิทธิภาพ",
+	"setting.nearby.performance.tip": "การตั้งค่าที่จำกัดขอบเขตของโต๊ะทำงานขยายระยะเพื่อปรับปรุงประสิทธิภาพ",
+
+	"setting.nearby.max-chests": "จำนวนที่เก็บของสูงสุด",
+	"setting.nearby.max-chests.tip": "จำนวนที่เก็บของสูงสุดที่โต๊ะทำงานจะใช้งานได้",
+
+	"setting.nearby.max-distance": "ระยะทางสูงสุด",
+	"setting.nearby.max-distance.tip": "ระยะทางสูงสุดที่ที่เก็บของจะอยู่ห่างจากโต๊ะทำงานได้",
+
+	"setting.nearby.max-check": "จำนวนช่องตรวจสอบสูงสุด",
+	"setting.nearby.max-check.tip": "จำนวนช่องสูงสุดที่จะตรวจสอบเมื่อค้นหาที่เก็บของใกล้เคียง",
+
+	"setting.nearby.connectors": "ตัวเชื่อมต่อที่อนุญาต",
+	"setting.nearby.connectors.tip": "วัตถุที่วางได้ซึ่งสามารถใช้เป็นตัวเชื่อมต่อ ควรหลีกเลี่ยงการเพิ่มประเภทตัวเชื่อมต่อที่ไม่จำเป็นเพื่อรักษาประสิทธิภาพ โปรดทราบว่าตัวอย่างเหล่านี้เป็นเพียงตัวอย่าง และคุณสามารถแก้ไขไฟล์ Config เพื่อเพิ่มวัตถุอื่นได้ด้วยตนเอง",
+
+	"setting.nearby.floors": "พื้น",
+	"setting.nearby.fences": "รั้ว",
+	"setting.nearby.other": "ตัวอย่างอื่นๆ",
+
+	"setting.recover-trash": "กู้คืนขยะ",
+	"setting.recover-trash.about": "เมื่อเปิดใช้งาน คุณสามารถคลิกขวาที่ถังขยะของคุณเพื่อเปิดเมนูสำหรับกู้คืนไอเทมที่เพิ่งทิ้งไป โปรดทราบว่าเมนูจะจดจำไอเทมได้สูงสุด 36 ชิ้นต่อครั้งเท่านั้น",
+
+	"setting.recycle": "การรีไซเคิล",
+	"setting.recycle.about": "เมื่อเปิดใช้งาน คุณสามารถใช้เมนูคราฟต์เพื่อรีไซเคิลไอเทมและรับไอเทมที่ใช้คราฟต์คืนมาได้",
+
+	"setting.recycle.higher-quality": "อนุญาตคุณภาพที่สูงขึ้น",
+	"setting.recycle.higher-quality.tip": "เมื่อเปิดใช้งาน คุณจะสามารถรีไซเคิลไอเทมได้หากมีคุณภาพสูงกว่าที่สูตรผลิตออกมา แต่คุณจะไม่สามารถรีไซเคิลไอเทมที่มีคุณภาพต่ำกว่าที่สูตรผลิตได้",
+
+	"setting.recycle.fuzzy": "จับคู่ไอเทมแบบคลุมเครือ",
+	"setting.recycle.fuzzy.tip": "สูตรคราฟต์บางอย่างไม่ได้ระบุไอเทมเฉพาะ แต่เป็นกลุ่ม เช่น 'ไข่ (อะไรก็ได้)' ปกติแล้วจะไม่คืนไอเทมให้ การเปิดใช้งานนี้จะส่งคืนไอเทมที่ตรงกันที่ราคาถูกที่สุดแทน",
+
+	"setting.recycle.unknown": "อนุญาตสูตรที่ไม่รู้จัก",
+	"setting.recycle.unknown.tip": "เมื่อเปิดใช้งาน คุณสามารถรีไซเคิลไอเทมได้แม้จะยังไม่ได้ปลดล็อกสูตรคราฟต์นั้น",
+
+	"setting.recycle.crafting": "รีไซเคิลจากการคราฟต์",
+	"setting.recycle.crafting.tip": "ว่าจะอนุญาตให้รีไซเคิลในขณะคราฟต์หรือไม่",
+
+	"setting.recycle.cooking": "รีไซเคิลจากการทำอาหาร",
+	"setting.recycle.cooking.tip": "ว่าจะอนุญาตให้รีไซเคิลในขณะทำอาหารหรือไม่",
+
+	"setting.recycle-mode.enabled": "เสมอ",
+	"setting.recycle-mode.disabled": "ไม่เคย",
+	"setting.recycle-mode.automatic": "อัตโนมัติ (เมื่อถือไอเทมที่รีไซเคิลได้)",
+
+	"setting.recycle.click-toggle": "คลิกเพื่อสลับ",
+	"setting.recycle.click-toggle.tip": "เมื่อเปิดใช้งาน การคลิกถังขยะในเมนูคราฟต์จะเป็นการสลับโหมดรีไซเคิล เปิด/ปิด จะใช้ได้ก็ต่อเมื่อไม่ได้ถือไอเทมอยู่เท่านั้น",
+
+	"setting.transfer": "โอนไปยังที่เก็บของ",
+	"setting.transfer.about": "ฟีเจอร์นี้ช่วยให้คุณโอนย้ายไอเทมจากกระเป๋าไปยังหีบที่เชื่อมต่อกับโต๊ะทำงานหรือห้องครัวได้อย่างรวดเร็ว ไอเทมที่ตรงกันจะถูกนำไปไว้ในหีบที่เหมาะสม คล้ายกับระบบเพิ่มลงในสแต็กที่มีอยู่ (Add to Existing Stacks)",
+
+	"setting.transfer.enable": "เปิดใช้งานการโอนไปยังที่เก็บของ",
+
+	"setting.transfer.action": "การกระทำ ({{binding}})",
+	"setting.transfer.action-modifier": "การกระทำด้วยปุ่มปรับเปลี่ยน",
+	"setting.transfer.use-tool": "ใช้เครื่องมือ ({{binding}})",
+	"setting.transfer.use-tool-modifier": "ใช้เครื่องมือด้วยปุ่มปรับเปลี่ยน",
+
+	"setting.transfer.behavior": "โหมด",
+
+	"setting.transfer.behavior.none": "ไม่ทำอะไรเลย",
+	"setting.transfer.behavior.all": "โอนทั้งหมด",
+	"setting.transfer.behavior.all-quantity": "โอนทั้งหมดเว้นไว้ตามจำนวน",
+	"setting.transfer.behavior.quantity": "โอนตามจำนวน",
+	"setting.transfer.behavior.half": "โอนครึ่งหนึ่ง",
+
+	"setting.transfer.quantity": "จำนวน",
+	"setting.transfer.quantity.tip": "จำนวนที่จะโอนหากใช้ \"โอนตามจำนวน\" หรือจำนวนที่ต้องการเหลือไว้หากใช้ \"โอนทั้งหมดเว้นไว้ตามจำนวน\"",
+
+	"setting.cookout": "ปรับแต่ง Cookout Kit",
+	"setting.cookout.about": "การตั้งค่าเหล่านี้จะปรับพฤติกรรมของ Cookout Kit ให้ทำงานเหมือนกับโต๊ะทำงาน",
+
+	"setting.cookout.workbench": "เชื่อมต่อเหมือนโต๊ะทำงาน",
+	"setting.cookout.workbench.tip": "เมื่อเปิดใช้งาน Cookout Kit จะดึงวัตถุดิบจากที่เก็บของใกล้เคียงได้เหมือนโต๊ะทำงาน",
+
+	"setting.cookout.durable": "ชุดคิตคงทน",
+	"setting.cookout.durable.tip": "เมื่อเปิดใช้งาน Cookout Kit จะไม่หายไปข้ามคืนและจะไม่หายไปเมื่อคุณทำลายมัน",
+
+	"setting.cookout.expensive": "ชุดคิตราคาแพงขึ้น",
+	"setting.cookout.expensive.tip": "เมื่อเปิดใช้งาน สูตรคราฟต์ของ Cookout Kit จะถูกปรับให้แพงขึ้น เพื่อสร้างความสมดุลกับการใช้งานที่นานขึ้น",
+
+	"setting.quality": "คุณภาพ",
+	"setting.quality.tip": "โปรดทราบว่าสูตรบางอย่างที่เพิ่มโดยแหล่งอื่น เช่น SpaceCore อาจไม่รองรับการตั้งค่าเหล่านี้เนื่องจากข้อจำกัดของ API",
+
+	"setting.enable-quality": "เปิดใช้งานการจำกัดคุณภาพ",
+	"setting.enable-quality.tip": "เมื่อเปิดใช้งาน ปุ่มจะแสดงให้คุณเลือกคุณภาพสูงสุดของไอเทมที่จะนำมาใช้คราฟต์",
+
+	"setting.sort-quality": "ใช้คุณภาพต่ำก่อน",
+	"setting.sort-quality.tip": "เมื่อเปิดใช้งาน สูตรอาหารจะถูกคราฟต์โดยใช้อไอเทมคุณภาพต่ำก่อน",
+
+	"setting.crafting": "การคราฟต์",
+	"setting.crafting.tip": "การตั้งค่าเหล่านี้ใช้กับเมนูคราฟต์ที่ถูกสร้างขึ้นใหม่โดยเฉพาะ",
+
+	"setting.uniform-grid": "บังคับขนาดตารางที่สม่ำเสมอ",
+	"setting.uniform-grid.tip": "เมื่อเปิดใช้งาน ไอเทมคราฟต์ขนาดใหญ่จะถูกปรับขนาดให้พอดีในแถวเดียว",
+
+	"setting.big-craftables-last": "เรียงไอเทมขนาดใหญ่ไว้ท้ายสุด",
+	"setting.big-craftables-last.tip": "เมื่อเปิดใช้งาน ไอเทมคราฟต์ขนาดใหญ่จะถูกนำไปไว้ที่ท้ายรายการทั้งหมด",
+
+	"setting.cooking": "การทำอาหาร",
+	"setting.cooking.tip": "การตั้งค่าเหล่านี้ใช้กับเมนูทำอาหารที่ถูกสร้างขึ้นใหม่โดยเฉพาะ",
+
+	"setting.seasoning": "ใช้เครื่องปรุง",
+	"setting.seasoning.tip": "ว่าจะใช้เครื่องปรุงเพื่อเพิ่มคุณภาพอาหารหรือไม่ เมื่อตั้งเป็น \"เฉพาะในกระเป๋า\" เครื่องปรุงจะถูกดึงมาจากในกระเป๋าเท่านั้น ไม่ใช่จากตู้เย็นหรือแหล่งอื่น",
+
+	"seasoning.disabled": "ไม่เคย",
+	"seasoning.enabled": "เสมอ",
+	"seasoning.inventory": "เฉพาะในกระเป๋า",
+
+	"seasoning.used-last": "คุณใช้ {{item}} หมดแล้ว",
+	"seasoning.generic": "เครื่องปรุง",
+
+	"setting.show-unknown": "แสดงสูตรที่ไม่รู้จัก",
+	"setting.show-unknown.tip": "เมื่อเปิดใช้งาน สูตรที่คุณยังไม่ได้เรียนรู้จะแสดงในเมนูคล้ายกับสูตรทำอาหารที่ไม่รู้จัก",
+
+	"setting.hide-unknown": "ซ่อนสูตรที่ไม่รู้จัก",
+	"setting.hide-unknown.tip": "เมื่อเปิดใช้งาน สูตรที่คุณยังไม่ได้เรียนรู้จะไม่แสดงในเมนู",
+
+	"tooltip.cost": "ราคาซื้อ:",
+
+	"tooltip.loves": "ของที่ชอบมาก: {{npcs}}",
+	"tooltip.likes": "ของที่ชอบ: {{npcs}}",
+
+	"tooltip.copy-cat": "คัดลอกหมวดหมู่ไปยังคลิปบอร์ด",
+	"tooltip.paste-cat": "วางหมวดหมู่จากคลิปบอร์ด",
+	"tooltip.trash-cat": "ลบหมวดหมู่",
+	"tooltip.trash-cat.confirm": "คุณแน่ใจหรือไม่ว่าต้องการลบหมวดหมู่ \"{{name}}\"?",
+
+	"tooltip.trash-all": "รีเซ็ตหมวดหมู่เป็นค่าเริ่มต้น",
+	"tooltip.trash-all.confirm": "คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตหมวดหมู่ทั้งหมดเป็นค่าเริ่มต้น?",
+
+	"tooltip.move-up": "เลื่อนหมวดหมู่ขึ้น",
+	"tooltip.move-down": "เลื่อนหมวดหมู่ลง",
+
+	"tooltip.crafted": "คราฟต์ไปแล้ว {{count}} ครั้ง",
+	"tooltip.cooked": "ทำอาหารไปแล้ว {{count}} ครั้ง",
+
+	"tooltip.toggle-recipe": "สลับการแสดงในหมวดหมู่",
+	"tooltip.use-as-icon": "ใช้เป็นไอคอน",
+
+	"tooltip.transfer.to": "เพิ่มไอเทมลงในที่เก็บของ",
+	"tooltip.transfer.to-item": "เพิ่มไอเทมที่ถืออยู่ลงในที่เก็บของ",
+
+	"tooltip.transfer.from": "เติมไอเทมจากที่เก็บของ",
+	"tooltip.transfer.from-item": "เติมไอเทมที่ถืออยู่จากที่เก็บของ",
+
+	"tooltip.transfer.all": "โอนทั้งหมด",
+	"tooltip.transfer.but-quantity": "โอนทั้งหมดเว้นไว้ {{count}} ชิ้น",
+	"tooltip.transfer.half": "โอนครึ่งหนึ่ง",
+	"tooltip.transfer.quantity": "โอน {{count}} ชิ้น",
+
+	"tooltip.edit-filter-locked": "ไม่สามารถเปิดหรือปิดสูตรรายรายการได้เมื่อใช้กฎแบบไดนามิกสำหรับหมวดหมู่นี้ โปรดปรับกฎของคุณ หรือปิดกฎแบบไดนามิก",
+
+	"tooltip.recycle": "รีไซเคิล {{item}}",
+	"tooltip.recycle.invalid": "คุณไม่สามารถรีไซเคิลไอเทมนี้ได้",
+	"tooltip.recycle.insufficient": "คุณต้องมีไอเทมนี้อย่างน้อย {{count}} ชิ้นเพื่อรีไซเคิล",
+	"tooltip.recycle.returns": "ได้รับคืน:",
+	"tooltip.recycle.not-returned": "ไม่ได้รับคืน:",
+	"tooltip.recycle.all": "รีไซเคิลทั้งหมด ({{amount}})",
+	"tooltip.recycle.once": "รีไซเคิลบางส่วน ({{amount}})",
+
+	"bulk.purchase": "ซื้อจำนวนมาก",
+	"bulk.crafting": "คราฟต์จำนวนมาก",
+	"bulk.craftable": "คราฟต์ได้ {{count}} ชิ้น",
+	"bulk.craft": "คราฟต์ {{name}} จำนวน {{count}} ชิ้น",
+	"bulk.cooking": "ทำอาหารจำนวนมาก",
+	"bulk.cookable": "ทำได้ {{count}} จาน",
+	"bulk.cook": "ทำอาหาร {{name}} จำนวน {{count}} จาน",
+
+	"category.new": "หมวดหมู่ใหม่",
+	"category.favorites": "รายการโปรด",
+	"category.combat_rings": "การต่อสู้และแหวน",
+	"category.consumables": "ของกิน/ของใช้",
+	"category.decoration": "ของตกแต่ง",
+	"category.fertilizer_seeds": "ปุ๋ยและเมล็ดพันธุ์",
+	"category.fishing": "ตกปลา",
+	"category.machinery": "เครื่องจักร",
+	"category.misc": "เบ็ดเตล็ด",
+
+	"category.food.farming": "ฟาร์มและของป่า",
+	"category.food.mining": "เหมืองและแม่เหล็ก",
+	"category.food.fishing": "ตกปลา",
+	"category.food.combat": "การต่อสู้",
+	"category.food.other": "โชค, ความเร็ว และอื่นๆ",
+
+	"currency.gold": "ทอง",
+	"currency.festival-points": "คะแนน",
+	"currency.club-coins": "เหรียญคลับ",
+	"currency.qi-gems": "อัญมณีคิว (Qi Gems)",
+
+	"item.category.equipment": "อุปกรณ์",
+	"item.category.cooking": "ทำอาหาร (อะไรก็ได้)",
+	"item.category.crafting": "คราฟต์ (อะไรก็ได้)",
+	"item.category.mineral": "แร่ (อะไรก็ได้)",
+	"item.category.meat": "เนื้อ (อะไรก็ได้)",
+	"item.category.fertilizer": "ปุ๋ย (อะไรก็ได้)",
+	"item.category.junk": "ขยะ (อะไรก็ได้)",
+	"item.category.seeds": "เมล็ดพันธุ์ (อะไรก็ได้)",
+	"item.category.fruit": "ผลไม้ (อะไรก็ได้)",
+	"item.category.flower": "ดอกไม้ (อะไรก็ได้)",
+
+	"filter.add-new": "เพิ่มกฎใหม่",
+	"filter.from-rule": "เปิดใช้งานโดยกฎ",
+
+	"filter.include-toggle": "รวมในหมวดหมู่",
+	"filter.include-toggle.about": "ว่าจะรวมหรือยกเว้นสูตรที่ตรงกับกฎนี้ในหมวดหมู่",
+
+	"filter.storage": "ที่เก็บของ",
+	"filter.storage.about": "กฎนี้จับคู่ไอเทมที่ทำหน้าที่เป็นที่เก็บของ เช่น หีบหรือ Hopper",
+
+	"filter.everything": "ทุกอย่าง",
+	"filter.everything.about": "กฎนี้จับคู่ทุกสูตร",
+
+	"filter.new-buff": "บัฟ",
+	"filter.new-buff.about": "กฎนี้จับคู่ไอเทมที่ให้บัฟบางอย่างเมื่อกิน",
+
+	"filter.uncrafted": "ยังไม่เคยคราฟต์",
+	"filter.uncrafted.about": "กฎนี้จับคู่ไอเทมที่คุณยังไม่เคยคราฟต์",
+
+	"filter.search": "ค้นหา",
+	"filter.search.about": "กฎนี้จับคู่ไอเทมกับการค้นหา โดยใช้กฎเดียวกับเมนูคราฟต์",
+
+	"filter.provider": "ผู้จัดหาสูตร",
+	"filter.provider.about": "กฎนี้จะจับคู่สูตรทั้งหมดที่จัดการโดยผู้จัดหาเฉพาะ มีไว้เพื่อการพัฒนา/ดีบัก",
+
+	"filter.mod": "ไอเทมจากมอด",
+	"filter.mod.about": "กฎนี้จะพยายามจับคู่สูตรทั้งหมดที่เพิ่มเข้ามาโดยมอดเฉพาะ",
+
+	"filter.gift-taste": "รสนิยมของขวัญ: {{taste}}",
+	"filter.gift-taste.about": "กฎนี้จะพยายามจับคู่ไอเทมที่ NPC {{taste}} แสดงเฉพาะรสนิยมที่รู้จักแล้วเท่านั้น เว้นแต่คุณจะเปิดใช้งาน \"แสดงรสนิยมของขวัญที่ยังไม่พบ\"",
+	"filter.gift-taste.likes": "ชอบ",
+	"filter.gift-taste.loves": "ชอบมาก",
+	"filter.gift-taste.dislikes": "ไม่ชอบ",
+	"filter.gift-taste.hates": "เกลียด",
+
+	"filter.machine": "เครื่องจักร",
+	"filter.machine.about": "กฎนี้จับคู่ไอเทมที่เป็นเครื่องจักร ใช้ประมวลผลไอเทมหรือฟังก์ชันอื่น",
+
+	"filter.sprinkler": "สปริงเกลอร์",
+	"filter.sprinkler.about": "กฎนี้จับคู่สปริงเกลอร์",
+
+	"filter.floors": "พื้นและทางเดิน",
+	"filter.floors.about": "กฎนี้จับคู่ไอเทมพื้นและทางเดินทั้งหมด",
+
+	"filter.fences": "รั้ว",
+	"filter.fences.about": "กฎนี้จับคู่ไอเทมรั้วทั้งหมด",
+
+	"filter.furniture": "เฟอร์นิเจอร์",
+	"filter.furniture.about": "กฎนี้จับคู่ไอเทมเฟอร์นิเจอร์ทั้งหมด",
+
+	"filter.light": "แสงสว่าง",
+	"filter.light.about": "กฎนี้จับคู่ไอเทมให้แสงสว่างที่วางได้",
+
+	"filter.error": "กฎไม่ถูกต้อง",
+	"filter.error.about": "ID ของกฎนี้ไม่ถูกต้องหรือไม่ได้รับการลงทะเบียน และอาจมาจากมอดที่ถูกลบไปแล้ว",
+
+	"filter.category": "หมวดหมู่",
+	"filter.category.about": "กฎนี้จับคู่ไอเทมภายในหมวดหมู่เฉพาะ",
+
+	"filter.context-tag": "แท็กบริบท (Context Tag)",
+	"filter.context-tag.about": "กฎนี้จับคู่ไอเทมที่มีแท็กบริบทเฉพาะ",
+
+	"filter.edible": "กินได้",
+	"filter.edible.about": "กฎนี้จับคู่ไอเทมที่กินได้",
+
+	"filter.recipe-count": "{{count}} สูตร",
+
+	"station.kitchen": "ห้องครัว"
+}

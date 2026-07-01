@@ -1,0 +1,183 @@
+{
+    // UI
+    "QuickStackButton.hoverText": "เก็บของด่วนเข้าหีบใกล้เคียง",
+
+    "AutoOrganizeButton.hoverText": "จัดระเบียบอัตโนมัติ เปิดอยู่",
+    "AutoOrganizeButton.hoverText.disable": "(คลิกขวาเพื่อปิด)",
+    "AutoOrganizeButton.hoverText.disable-gamepad": "(กด X เพื่อปิด)",
+
+    "QuickStackToggleChestButton.hoverText.enabled": "เปิดใช้งานการเก็บของด่วนในระยะ",
+    "QuickStackToggleChestButton.hoverText.disabled": "ปิดใช้งานการเก็บของด่วนในระยะ",
+    "QuickStackToggleChestButton.hoverText.priority1": "ลำดับความสำคัญ +1",
+    "QuickStackToggleChestButton.hoverText.priority2": "ลำดับความสำคัญ +2",
+    "QuickStackToggleChestButton.hoverText.priority3": "ลำดับความสำคัญ +3",
+
+    "FillStacksQuickStackButton.hoverText": "เก็บของด่วน",
+
+    // ModConfigMenu
+    "ModConfigMenu.Label.QuickStackToNearbyChests": "เก็บของด่วนเข้าหีบใกล้เคียง",
+
+    "ModConfigMenu.IsEnableQuickStack.Name": "เปิดใช้งานการเก็บของด่วน?",
+    "ModConfigMenu.IsEnableQuickStack.Desc": "หากเปิดใช้งาน จะเพิ่มปุ่ม \"เก็บของด่วนเข้าหีบใกล้เคียง\" ในหน้าเมนูคลังเก็บของของคุณ การกดปุ่มนี้จะย้ายไอเทมจากคลังของคุณไปยังหีบใกล้เคียงที่มีไอเทมนั้นอยู่",
+
+    "ModConfigMenu.IsEnableQuickStackHotkey.Name": "เปิดใช้งานปุ่มลัด?",
+    "ModConfigMenu.IsEnableQuickStackHotkey.Desc": "หากเปิดใช้งาน การกดปุ่มลัดการเก็บของด่วนที่ระบุด้านล่างจะทำการเก็บของด่วนทันที แม้จะอยู่นอกหน้าเมนูคลังเก็บของก็ตาม",
+
+    "ModConfigMenu.QuickStackKeyboardHotkey.Name": "ปุ่มลัด (คีย์บอร์ด)",
+    "ModConfigMenu.QuickStackKeyboardHotkey.Desc": "กดปุ่มนี้เพื่อเก็บของด่วน",
+
+    "ModConfigMenu.QuickStackControllerHotkey.Name": "ปุ่มลัด (คอนโทรลเลอร์)",
+    "ModConfigMenu.QuickStackControllerHotkey.Desc": "กดปุ่มนี้เพื่อเก็บของด่วน",
+
+    "ModConfigMenu.QuickStackRange.Name": "ระยะ",
+    "ModConfigMenu.QuickStackRange.Desc": "จำนวนช่องรอบตัวผู้เล่นที่จะค้นหาหีบใกล้เคียง\n\nหากตั้งเป็น \"Location\" จะพิจารณาหีบทั้งหมดในตำแหน่งปัจจุบันของผู้เล่น",
+    "ModConfigMenu.QuickStackRange.Desc-Global": "\n\nหากตั้งเป็น \"Global\" จะพิจารณาหีบทั้งหมดในโลก",
+    "ModConfigMenu.QuickStackRange.ChestsAnywhereGlobalWarning": "ค่าคอนฟิก QuickStackRange คือ \"Global\" แต่ถูกรีเซ็ตเป็น \"Location\" เนื่องจากค่า \"Global\" รองรับเฉพาะเมื่อติดตั้งมอด Chests Anywhere เท่านั้น",
+
+    "ModConfigMenu.IsQuickStackOverflowItems.Name": "ไอเทมล้น (Overflow)?",
+    "ModConfigMenu.IsQuickStackOverflowItems.Desc": "หากเปิดใช้งาน การเก็บของด่วนจะพยายามใส่ไอเทมลงในหีบที่มีไอเทมนั้นอยู่ให้ได้มากที่สุด แทนที่จะเก็บแค่หนึ่งสแต็ก",
+
+    "ModConfigMenu.IsQuickStackIgnoreItemQuality.Name": "ไม่สนใจคุณภาพไอเทม?",
+    "ModConfigMenu.IsQuickStackIgnoreItemQuality.Desc": "(ต้องเปิดใช้งาน \"ไอเทมล้น (Overflow)?\")\nหากเปิดใช้งาน การเก็บของด่วนจะใส่ไอเทมลงในหีบที่มีไอเทมนั้นอยู่ โดยไม่สนใจว่าจะมีคุณภาพระดับใด",
+
+    "ModConfigMenu.IsQuickStackIgnoreItemColorVariation.Name": "ไม่สนใจความแตกต่างของสี?",
+    "ModConfigMenu.IsQuickStackIgnoreItemColorVariation.Desc": "(ต้องเปิดใช้งาน \"ไอเทมล้น (Overflow)?\")\nหากเปิดใช้งาน การเก็บของด่วนจะใส่ไอเทมลงในหีบที่มีไอเทมนั้นอยู่ โดยไม่สนใจความแตกต่างของสี (เช่น ดอกไม้สีต่างๆ)",
+
+    "ModConfigMenu.IsQuickStackIgnoreItemNameVariation.Name": "ไม่สนใจความแตกต่างของชื่อ?",
+    "ModConfigMenu.IsQuickStackIgnoreItemNameVariation.Desc": "(ต้องเปิดใช้งาน \"ไอเทมล้น (Overflow)?\")\nหากเปิดใช้งาน การเก็บของด่วนจะใส่ไอเทมลงในหีบที่มีไอเทมนั้นอยู่ โดยไม่สนใจความแตกต่างของชื่อ (เช่น น้ำผึ้งชนิดต่างๆ)",
+
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Name": "ไอเทมที่ไม่สามารถสแต็กได้เมื่อล้น:",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc": "(ต้องเปิดใช้งาน \"ไอเทมล้น (Overflow)?\")\nเลือกว่าไอเทมประเภทที่ไม่สามารถสแต็กได้ประเภทใดที่สามารถเก็บด่วนได้หากหีบมีไอเทมนั้นอยู่\n\nเลือก \"None\" หากไม่ต้องการให้ไอเทมที่ไม่สามารถสแต็กได้ถูกเก็บด่วน",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc-None": "ไม่มี",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc-All": "ทั้งหมด",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc-ExceptTools": "ยกเว้นเครื่องมือ",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc-ExceptToolsWeapons": "ยกเว้นเครื่องมือและอาวุธ",
+    "ModConfigMenu.QuickStackNonStackableTypesToOverflow.Desc-ExceptToolsWeaponsEquips": "ยกเว้นเครื่องมือ อาวุธ และอุปกรณ์สวมใส่",
+
+    "ModConfigMenu.SubHeader.InChestMenu": "ในหน้าเมนูหีบ",
+
+    "ModConfigMenu.IsQuickStackAllowHotkeyInChestMenu.Name": "อนุญาตปุ่มลัดในเมนูหีบ?",
+    "ModConfigMenu.IsQuickStackAllowHotkeyInChestMenu.Desc": "(ต้องเปิดใช้งาน \"เปิดใช้งานปุ่มลัด?\")\nหากเปิดใช้งาน จะอนุญาตให้ใช้ปุ่มลัดเก็บของด่วนภายในเมนูหีบ โดยไอเทมจะถูกเก็บเข้าสู่หีบเฉพาะนั้นๆ",
+
+    "ModConfigMenu.IsQuickStackWithFillStacksButton.Name": "เก็บของด่วนด้วยปุ่ม \"เพิ่มลงในสแต็กที่มีอยู่\"?",
+    "ModConfigMenu.IsQuickStackWithFillStacksButton.Desc": "หากเปิดใช้งาน ปุ่ม \"เพิ่มลงในสแต็กที่มีอยู่\" ในเมนูหีบจะกลายเป็นปุ่ม \"เก็บของด่วน\" ซึ่งจะย้ายไอเทมเข้าหีบนั้นทันทีที่กด",
+
+    "ModConfigMenu.IsQuickStackVisuallyOverrideFillStacksButton.Name": "ใช้ไอคอนเก็บของด่วนแทนปุ่มเพิ่มลงในสแต็ก?",
+    "ModConfigMenu.IsQuickStackVisuallyOverrideFillStacksButton.Desc": "(ต้องเปิดใช้งาน \"เก็บของด่วนด้วยปุ่ม เพิ่มลงในสแต็กที่มีอยู่?\")\nหากเปิดใช้งาน ปุ่มในเมนูหีบจะแสดงไอคอนที่แตกต่างออกไปเล็กน้อยเพื่อบ่งบอกว่าเป็นปุ่มเก็บของด่วน",
+
+    "ModConfigMenu.IsEnableQuickStackToggleChest.Name": "สลับการเก็บของด่วนทีละหีบ?",
+    "ModConfigMenu.IsEnableQuickStackToggleChest.Desc": "หากเปิดใช้งาน จะเพิ่มปุ่มสลับการเก็บของด่วนในเมนูหีบ เพื่อกำหนดว่าหีบใบนั้นจะถูกพิจารณาในการเก็บของด่วนหรือไม่",
+
+    "ModConfigMenu.IsEnableQuickStackPrioritizeChest.Name": "ตั้งลำดับความสำคัญการเก็บของด่วนทีละหีบ?",
+    "ModConfigMenu.IsEnableQuickStackPrioritizeChest.Desc": "(ต้องเปิดใช้งาน \"สลับการเก็บของด่วนทีละหีบ?\")\nหากเปิดใช้งาน ปุ่มสลับสามารถกำหนดระดับความสำคัญให้หีบนั้นๆ ได้ โดยหีบที่มีความสำคัญสูงกว่าจะถูกพิจารณาก่อนเมื่อทำการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackToggleChestButtonHidden.Name": "ซ่อนปุ่มสลับการเก็บของด่วน?",
+    "ModConfigMenu.IsQuickStackToggleChestButtonHidden.Desc": "(ต้องเปิดใช้งาน \"สลับการเก็บของด่วนทีละหีบ?\")\nหากเปิดใช้งาน ปุ่มสลับจะถูกซ่อนจากเมนูหีบ แม้จะซ่อนอยู่การตั้งค่าการสลับ/จัดลำดับความสำคัญก็จะยังคงถูกใช้งาน",
+
+    "ModConfigMenu.SubHeader.OtherInventories": "คลังเก็บของอื่นๆ",
+
+    "ModConfigMenu.IsQuickStackIntoFridges.Name": "เข้าไปที่ตู้เย็น?",
+    "ModConfigMenu.IsQuickStackIntoFridges.Desc": "หากเปิดใช้งาน ตู้เย็นใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoMiniFridges.Name": "เข้าไปที่ตู้เย็นขนาดเล็ก?",
+    "ModConfigMenu.IsQuickStackIntoMiniFridges.Desc": "หากเปิดใช้งาน ตู้เย็นขนาดเล็กใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoMills.Name": "เข้าไปที่โรงสี?",
+    "ModConfigMenu.IsQuickStackIntoMills.Desc": "หากเปิดใช้งาน โรงสีใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoJunimoHuts.Name": "เข้าไปที่กระท่อมจูนิโม?",
+    "ModConfigMenu.IsQuickStackIntoJunimoHuts.Desc": "หากเปิดใช้งาน กระท่อมจูนิโมใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoDressers.Name": "เข้าไปที่ตู้เสื้อผ้า?",
+    "ModConfigMenu.IsQuickStackIntoDressers.Desc": "(ต้องเปิดใช้งาน \"ไอเทมล้น (Overflow)?\")\nหากเปิดใช้งาน ตู้เสื้อผ้าใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoHoppers.Name": "เข้าไปที่ Hopper?",
+    "ModConfigMenu.IsQuickStackIntoHoppers.Desc": "หากเปิดใช้งาน Hopper ใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.IsQuickStackIntoMiniShippingBins.Name": "เข้าไปที่ถังจัดส่งขนาดเล็ก?",
+    "ModConfigMenu.IsQuickStackIntoMiniShippingBins.Desc": "หากเปิดใช้งาน ถังจัดส่งขนาดเล็กใกล้เคียงจะถูกนำมาพิจารณาในการเก็บของด่วน",
+
+    "ModConfigMenu.SubHeader.Animation": "แอนิเมชัน",
+
+    "ModConfigMenu.IsEnableQuickStackAnimation.Name": "เปิดใช้งานแอนิเมชันการเก็บของด่วน?",
+    "ModConfigMenu.IsEnableQuickStackAnimation.Desc": "หากเปิดใช้งาน แอนิเมชันจะเล่นเมื่อมีการเก็บของด่วนเพื่อแสดงให้เห็นว่าไอเทมแต่ละชิ้นถูกเก็บไว้ที่ไหน",
+
+    "ModConfigMenu.QuickStackAnimationItemSpeed.Name": "แอนิเมชัน: ความเร็วไอเทม",
+    "ModConfigMenu.QuickStackAnimationItemSpeed.Desc": "สำหรับแอนิเมชันการเก็บของด่วน: ปรับความเร็วของไอเทมที่เคลื่อนที่ไปยังหีบ\n\n0.5x: ครึ่งความเร็ว\n1x: ความเร็วปกติ\n3x: สามเท่าของความเร็ว",
+
+    "ModConfigMenu.QuickStackAnimationStackSpeed.Name": "แอนิเมชัน: ความเร็วการสแต็ก",
+    "ModConfigMenu.QuickStackAnimationStackSpeed.Desc": "สำหรับแอนิเมชันการเก็บของด่วน: ปรับความเร็วที่ไอเทมถูกจัดเรียงลงในหีบทีละชิ้น",
+
+    "ModConfigMenu.SubHeader.AdditionalSettings": "การตั้งค่าเพิ่มเติม",
+
+    "ModConfigMenu.IsQuickStackTooltipDrawNearbyChests.Name": "แสดงหีบใกล้เคียงในคำอธิบาย?",
+    "ModConfigMenu.IsQuickStackTooltipDrawNearbyChests.Desc": "หากเปิดใช้งาน การเลื่อนเมาส์ไปชี้ที่ปุ่มเก็บของด่วนจะแสดงตัวอย่างหีบใกล้เคียงทั้งหมดที่จะถูกนำมาพิจารณา เรียงตามระยะทาง",
+
+    "ModConfigMenu.IsSuppressSoundWhenNoNearbyChests.Name": "ปิดเสียงเมื่อไม่มีหีบใกล้เคียง?",
+    "ModConfigMenu.IsSuppressSoundWhenNoNearbyChests.Desc": "หากเปิดใช้งาน การกดปุ่มเก็บของด่วนหรือปุ่มลัดจะมีเสียงเอฟเฟกต์เฉพาะเมื่อมีหีบใกล้เคียงเท่านั้น",
+
+    "ModConfigMenu.Label.FavoriteItems": "ไอเทมรายการโปรด",
+
+    "ModConfigMenu.IsEnableFavoriteItems.Name": "เปิดใช้งานไอเทมรายการโปรด?",
+    "ModConfigMenu.IsEnableFavoriteItems.Desc": "หากเปิดใช้งาน ไอเทมในคลังของคุณสามารถถูกเพิ่มเข้าในรายการโปรดได้ ไอเทมรายการโปรดจะถูกละเว้นเมื่อทำการเก็บของเข้าหีบ และจะถูกป้องกันไม่ให้ถูกทิ้ง, ตกพื้น และจัดส่ง",
+
+    "ModConfigMenu.FavoriteItemsKeyboardHotkey.Name": "ปุ่มลัด (คีย์บอร์ด)",
+    "ModConfigMenu.FavoriteItemsKeyboardHotkey.Desc": "กดปุ่มนี้ค้างไว้เมื่อเลือกไอเทมเพื่อเพิ่มเข้ารายการโปรด",
+
+    "ModConfigMenu.FavoriteItemsControllerHotkey.Name": "ปุ่มลัด (คอนโทรลเลอร์)",
+    "ModConfigMenu.FavoriteItemsControllerHotkey.Desc": "กดปุ่มนี้ค้างไว้เมื่อเลือกไอเทมเพื่อเพิ่มเข้ารายการโปรด",
+
+    "ModConfigMenu.SubHeader.Customize": "ปรับแต่ง",
+
+    "ModConfigMenu.PreviewFavoriteItemsHighlightTextureChoice.Name": "ตัวอย่าง:",
+    "ModConfigMenu.PreviewFavoriteItemsHighlightTextureChoice.Desc": "ดูตัวอย่างสไตล์ไฮไลต์ที่เลือก",
+
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Name": "สไตล์ไฮไลต์",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc": "เลือกสไตล์ของไอเทมรายการโปรดในคลังของคุณ",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-0": "เส้นประสีทอง",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-1": "เส้นประสีทองแบบเรียบ",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-2": "ขอบทองหนา",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-3": "ขอบทองมีพื้นผิว",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-4": "ขอบทองด้านใน",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-5": "เส้นประสีเข้ม",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-6": "ขอบหนาสีเข้ม",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-7": "ขอบทองตกแต่ง",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-8": "ขอบหนาแบบกำหนดเอง",
+    "ModConfigMenu.FavoriteItemsHighlightTextureChoice.Desc-9": "เส้นประแบบกำหนดเอง",
+
+    "ModConfigMenu.IsFavoriteItemsUseCustomHighlightColor.Name": "ใช้สีไฮไลต์แบบกำหนดเอง?",
+    "ModConfigMenu.IsFavoriteItemsUseCustomHighlightColor.Desc": "หากเปิดใช้งาน จะใช้สีที่กำหนดเองกับสไตล์ไฮไลต์",
+
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.R.Name": "สีไฮไลต์แบบกำหนดเอง: R (แดง)",
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.R.Desc": "(ต้องเปิดใช้งาน \"ใช้สีไฮไลต์แบบกำหนดเอง?\")\nองค์ประกอบสีแดงของสีไฮไลต์",
+
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.G.Name": "สีไฮไลต์แบบกำหนดเอง: G (เขียว)",
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.G.Desc": "(ต้องเปิดใช้งาน \"ใช้สีไฮไลต์แบบกำหนดเอง?\")\nองค์ประกอบสีเขียวของสีไฮไลต์",
+
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.B.Name": "สีไฮไลต์แบบกำหนดเอง: B (น้ำเงิน)",
+    "ModConfigMenu.FavoriteItemsCustomHighlightColor.B.Desc": "(ต้องเปิดใช้งาน \"ใช้สีไฮไลต์แบบกำหนดเอง?\")\nองค์ประกอบสีน้ำเงินของสีไฮไลต์",
+
+    "ModConfigMenu.Label.TakeAllButOne": "หยิบทั้งหมดเว้นไว้หนึ่งชิ้น",
+
+    "ModConfigMenu.IsEnableTakeAllButOne.Name": "เปิดใช้งานการหยิบทั้งหมดเว้นไว้หนึ่งชิ้น?",
+    "ModConfigMenu.IsEnableTakeAllButOne.Desc": "หากเปิดใช้งาน ขณะกดปุ่มลัดด้านล่างค้างไว้ จะเป็นการหยิบไอเทมทั้งหมดในสแต็กที่เลือกมาไว้หนึ่งชิ้นแทนการหยิบทีละชิ้น",
+
+    "ModConfigMenu.TakeAllButOneKeyboardHotkey.Name": "ปุ่มลัด (คีย์บอร์ด)",
+    "ModConfigMenu.TakeAllButOneKeyboardHotkey.Desc": "กดปุ่มนี้ค้างไว้ขณะหยิบไอเทมเพื่อหยิบออกมาทั้งหมดเว้นไว้หนึ่งชิ้น",
+
+    "ModConfigMenu.TakeAllButOneControllerHotkey.Name": "ปุ่มลัด (คอนโทรลเลอร์)",
+    "ModConfigMenu.TakeAllButOneControllerHotkey.Desc": "กดปุ่มนี้ค้างไว้ขณะหยิบไอเทมเพื่อหยิบออกมาทั้งหมดเว้นไว้หนึ่งชิ้น",
+
+    "ModConfigMenu.Label.AutoOrganizeChest": "จัดระเบียบหีบอัตโนมัติ",
+
+    "ModConfigMenu.IsEnableAutoOrganizeChest.Name": "เปิดใช้งานปุ่มจัดระเบียบหีบอัตโนมัติ?",
+    "ModConfigMenu.IsEnableAutoOrganizeChest.Desc": "หากเปิดใช้งาน การคลิกขวาที่ปุ่มจัดระเบียบของเมนูหีบ (หรือกด X บนจอย) จะเป็นการเปิด/ปิดการจัดระเบียบอัตโนมัติ เมื่อเปิดการจัดระเบียบอัตโนมัติ หีบจะคงความเป็นระเบียบอยู่เสมอแม้จะมีไอเทมใหม่เพิ่มเข้ามา",
+
+    "ModConfigMenu.IsShowAutoOrganizeButtonInstructions.Name": "แสดงคำแนะนำในข้อความเมื่อเลื่อนเมาส์ไปชี้?",
+    "ModConfigMenu.IsShowAutoOrganizeButtonInstructions.Desc": "หากเปิดใช้งาน ข้อความอธิบายปุ่มจัดระเบียบอัตโนมัติจะรวมคำแนะนำวิธีปิดการทำงานไว้ด้วย",
+
+    "ModConfigMenu.Label.Miscellaneous": "เบ็ดเตล็ด",
+
+    "ModConfigMenu.IsEnableInventoryPageSideWarp.Name": "เปิดใช้งานการวาร์ปเคอร์เซอร์ข้ามฝั่งในหน้าคลังเก็บของ?",
+    "ModConfigMenu.IsEnableInventoryPageSideWarp.Desc": "หากเปิดใช้งาน เมื่อเลื่อนเคอร์เซอร์บนจอยคอนโทรลเลอร์จนสุดขอบหน้าเมนูคลังเก็บของ เคอร์เซอร์จะวาร์ปไปยังฝั่งตรงข้ามโดยอัตโนมัติ"
+}

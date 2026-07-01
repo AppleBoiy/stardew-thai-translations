@@ -1,0 +1,83 @@
+{
+	// ชื่อภารกิจและคำสำคัญ (สำหรับการประมวลผล)
+	"task.animal": "สัตว์ในฟาร์ม",
+	"task.animal.keywords": "ซื้อ,ซื้อ,ได้มา",
+	"task.basic": "พื้นฐาน",
+	"task.blacksmith": "อัปเกรดเครื่องมือ",
+	"task.blacksmith.keywords": "อัปเกรด,ซื้อ,ซื้อ,ได้มา",
+	"task.build": "สร้าง",
+	"task.build.keywords": "สร้าง,ก่อสร้าง,อัปเกรด,ซื้อ,ซื้อ,ได้มา",
+	"task.buy": "ซื้อ",
+	"task.buy.keywords": "ซื้อ,ซื้อ,ได้มา",
+	"task.collect": "เก็บรวบรวม",
+	"task.collect.keywords": "เก็บ,ตัด,เก็บเกี่ยว,รวบรวม,หาของป่า,ตกปลา,จับ,ขุดแร่,ขุด,หา,ค้นหา,ดึงกลับ,ได้มา,ทำ",
+	"task.craft": "คราฟต์",
+	"task.craft.keywords": "คราฟต์,ทำอาหาร,สร้าง,ทำ,ได้มา",
+	"task.gift": "ของขวัญ",
+	"task.gift.keywords": "ของขวัญ,ให้",
+	"task.header": "หัวข้อ",
+	"task.sell": "ขาย",
+	"task.sell.keywords": "ขาย,ส่งขาย",
+
+	// ชื่อแท็บ/หน้า
+	"ui.tab.quests": "เควสต์",
+	"ui.tab.tasks": "ภารกิจ",
+	"ui.tab.notes": "บันทึก",
+	"ui.tab.overlays": "ส่วนแสดงผลซ้อนทับ (Overlays)",
+	
+	// หน้าภารกิจ (tasks page)
+	"ui.tasks.help": "กดปุ่มเพิ่มภารกิจด้านล่าง",
+	"ui.tasks.addbutton.hover": "เพิ่มภารกิจ",
+	"ui.tasks.editbox.hover": "แก้ไขภารกิจ",
+	"ui.tasks.removebutton.hover": "ลบภารกิจ",
+	"ui.tasks.renewbutton.hover": "ต่ออายุภารกิจ",
+	"ui.tasks.renew.day": "{{count}} วัน",
+	"ui.tasks.renew.days": "{{count}} วัน",
+	"ui.tasks.status.deliver": "[152] จัดส่ง",
+	"ui.tasks.status.upgrading": "[42] กำลังอัปเกรด",
+	"ui.tasks.status.ready": "[151] พร้อม",
+	"ui.tasks.moneybox.hover0": "จำนวนเงินทั้งหมดที่ต้องจ่าย/ได้รับ",
+	"ui.tasks.moneybox.hover1": "ทรัพย์สินสุทธิ",
+	"ui.tasks.moneybutton.hover": "เปลี่ยนมุมมอง",
+	"ui.tasks.filter": "ตัวกรอง: {{category}}",
+	"ui.tasks.filter.all": "ทั้งหมด",
+
+	// เมนูเพิ่มภารกิจใหม่
+	"ui.tasks.new": "เพิ่มภารกิจใหม่",
+	"ui.tasks.new.optionsbutton.hover": "ตัวเลือก",
+	"ui.tasks.new.cancelbutton.hover": "ยกเลิก",
+	"ui.tasks.new.smartokbutton.hover": "เพิ่มแบบอัจฉริยะ (Smart Add)",
+	"ui.tasks.new.smarttip": "Smart Add จะตั้งค่าขั้นสูงให้กับภารกิจโดยอัตโนมัติ",
+
+	// เมนูตัวเลือกภารกิจ
+	"ui.tasks.options": "ตัวเลือกภารกิจ",
+	"ui.tasks.options.name": "ชื่อ",
+	"ui.tasks.options.renew": "ระยะเวลาต่ออายุ",
+	"ui.tasks.options.renew.Never": "ไม่เลย",
+	"ui.tasks.options.renew.Daily": "รายวัน",
+	"ui.tasks.options.renew.Weekly": "รายสัปดาห์",
+	"ui.tasks.options.renew.Monthly": "รายเดือน",
+	"ui.tasks.options.renew.Annually": "รายปี",
+	"ui.tasks.options.renew.Custom": "กำหนดเอง",
+	"ui.tasks.options.type": "ประเภทภารกิจ",
+
+	// ชื่อพารามิเตอร์ภารกิจ
+	"ui.tasks.parameter.animal": "สัตว์",
+	"ui.tasks.parameter.building": "สิ่งปลูกสร้าง",
+	"ui.tasks.parameter.color": "สี",
+	"ui.tasks.parameter.count": "จำนวน",
+	"ui.tasks.parameter.item": "ไอเทม",
+	"ui.tasks.parameter.npc": "ชาวเมือง",
+	"ui.tasks.parameter.quality": "คุณภาพ (ขั้นต่ำ)",
+	"ui.tasks.parameter.tool": "เครื่องมือ",
+
+	// หน้า overlays
+	"ui.overlays.backgroundcolor": "สีพื้นหลัง",
+	"ui.overlays.hotkey": "ปุ่มลัด: {{keybind}}",
+
+	// ชื่อเรียกแทน (ทางเลือก)
+	"alias.animalshop.dairy_cow": "วัว,วัวนม",
+	"alias.buildings.farmhouse": "บ้าน,บ้านไร่",
+	"alias.items.copper_pan": "กระทะ",
+	"alias.npcs.abigail": "แอ๊บบี้"
+}

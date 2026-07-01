@@ -8,22 +8,19 @@
 
 | ชื่อม็อด | ผู้สร้าง | เวอร์ชัน | สถานะ | ลิงก์ต้นฉบับ |
 | :--- | :--- | :---: | :---: | :--- |
-| **[Sword & Sorcery](https://www.nexusmods.com/stardewvalley/mods/12369)** | DaisyNiko | ล่าสุด | 🔄 กำลังแปล (~41%) | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/12369) |
+| **[[CP] Additional Farm Cave](https://www.nexusmods.com/stardewvalley/mods/14109)** | Tikamin557 | 4.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/14109) |
+| **[Better Crafting](https://www.nexusmods.com/stardewvalley/mods/11115)** | Khloe Leclair | 2.18.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/11115) |
+| **[Convenient Inventory](https://www.nexusmods.com/stardewvalley/mods/10384)** | gaussfire | 1.6.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/10384) |
+| **[Deluxe Journal](https://www.nexusmods.com/stardewvalley/mods/43805)** | kauf0 | 1.4.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/43805) |
+| **[GI Extra locations - ContentPatcher](#)** | mistyspring | 1.5.1 | ⏳ รอแปล | - |
+| **[StardewHack](https://www.nexusmods.com/stardewvalley/mods/3213)** | bcmpinc | 7.4 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3213) |
+| **[TDIT - Portraits for Extras](https://www.nexusmods.com/stardewvalley/mods/35358)** | cresolyn & Dolphin Is Not a Fish | 1.3.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/35358) |
+| **[Tiny Totem Statue Obelisks](https://www.nexusmods.com/stardewvalley/mods/23118)** | JennaJuffuffles | 2.2.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/23118) |
+| **[TrinketTinker](https://www.nexusmods.com/stardewvalley/mods/29073)** | mushymato | 1.7.3 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/29073) |
 | **[UI Info Suite 2 Alternative](https://www.nexusmods.com/stardewvalley/mods/43127)** | DazUki | 2.8.32 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/43127) |
 | **[Unlockable Bundles](https://www.nexusmods.com/stardewvalley/mods/17265)** | DeLiXx | 4.3.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/17265) |
 | **[Wear More Rings](https://www.nexusmods.com/stardewvalley/mods/3214)** | bcmpinc | 7.9 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3214) |
 | **[World Navigator](https://www.nexusmods.com/stardewvalley/mods/28256)** | pneuma163 | 1.4.2 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/28256) |
-
-### 🗡️ Sword & Sorcery — ความคืบหน้าการแปล
-
-| ตัวละคร / หมวด | สถานะ |
-| :--- | :---: |
-| มาเทโอ (Core, Events 0H–14H, Marriage, Custom Talk) | ✅ เสร็จแล้ว |
-| เฮกเตอร์ / บิร็อก (Core, Events 0H–14H, Marriage, Custom Talk) | ✅ เสร็จแล้ว |
-| เอย์วินด์ (บทสนทนา Chapter 2–4) | ✅ เสร็จแล้ว |
-| ซีร์รัส (Core, เทศกาล, ของขวัญ, หนัง, รีสอร์ท) | ✅ เสร็จแล้ว |
-| ซีร์รัส (Marriage, Events 0H–10H, Strings) | 🔄 กำลังแปล |
-| แดนดิไลออน, รอสลิน และตัวละครที่เหลือ | ⏳ รอแปล |
 
 <p align="center">
   <img src="banners/install_banner.png" alt="วิธีติดตั้ง" width="300">
@@ -39,10 +36,19 @@
 </p>
 
 ขอขอบคุณผู้สร้างม็อดต้นฉบับทุกท่านที่ทำสิ่งเหล่านี้ขึ้นมา!
+* **Tikamin557** สำหรับ *[CP] Additional Farm Cave*
+* **Khloe Leclair** สำหรับ *Better Crafting*
+* **gaussfire** สำหรับ *Convenient Inventory*
+* **kauf0** สำหรับ *Deluxe Journal*
+* **mistyspring** สำหรับ *GI Extra locations - ContentPatcher*
+* **Rafseazz** สำหรับ *Ridgeside Village Seasonal Outfits*
+* **bcmpinc** สำหรับ *StardewHack* และ *Wear More Rings*
 * **DaisyNiko** สำหรับ *Sword & Sorcery*
+* **cresolyn & Dolphin Is Not a Fish** สำหรับ *TDIT - Portraits for Extras*
+* **JennaJuffuffles** สำหรับ *Tiny Totem Statue Obelisks*
+* **mushymato** สำหรับ *TrinketTinker*
 * **DazUki** สำหรับ *UI Info Suite 2 Alternative*
 * **DeLiXx** สำหรับ *Unlockable Bundles*
-* **bcmpinc** สำหรับ *Wear More Rings*
 * **pneuma163** สำหรับ *World Navigator*
 
 สิทธิ์และทรัพย์สินทั้งหมดของม็อดต้นฉบับเป็นของผู้สร้างแต่ละท่าน ที่นี่ให้เฉพาะไฟล์แปลภาษาเท่านั้น
