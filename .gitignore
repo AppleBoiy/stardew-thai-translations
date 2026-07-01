@@ -27,3 +27,4 @@ fix*.py
 
 # Build Outputs / Release Zips
 bundles/
+mods/*/README.md
