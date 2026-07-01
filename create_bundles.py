@@ -55,12 +55,10 @@ def main():
         if not os.path.isdir(mod_path):
             continue
             
-        th_json_files = glob.glob(os.path.join(mod_path, '**', 'th.json'), recursive=True)
+        th_json_files = glob.glob(os.path.join(mod_path, '**', 'th*.json'), recursive=True)
         th_folder_files = glob.glob(os.path.join(mod_path, '**', 'th', '*.*'), recursive=True)
         
-        all_translation_files = set(th_json_files + th_folder_files)
-        
-        if not all_translation_files:
+        if not th_json_files and not th_folder_files:
             continue
             
         actual_name, author, nexus_url = get_mod_info(mod_path)
@@ -69,20 +67,55 @@ def main():
             author = "Original Author"
             nexus_url = "N/A"
             
-        zip_filename = os.path.join(bundles_dir, f"{mod_name} - Thai Translation.zip")
-        print(f"Creating {zip_filename}...")
-        
-        with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            # Write the translation files
-            for file_path in all_translation_files:
-                arcname = os.path.relpath(file_path, mods_dir)
-                zipf.write(file_path, arcname)
-                print(f"  Added {arcname}")
+        # Determine unique variants based on th*.json names
+        variants = {} # map variant_name to list of json files
+        for f in th_json_files:
+            basename = os.path.basename(f)
+            if basename == 'th.json':
+                variant_name = ""
+            else:
+                m = re.match(r'th-(.+)\.json', basename)
+                if m:
+                    variant_name = m.group(1)
+                else:
+                    variant_name = basename.replace('th', '').replace('.json', '')
+            
+            if variant_name not in variants:
+                variants[variant_name] = []
+            variants[variant_name].append(f)
+            
+        # If no th*.json but there is a th/ folder
+        if not variants and th_folder_files:
+            variants[""] = []
+            
+        for variant_name, variant_jsons in variants.items():
+            if variant_name == "":
+                zip_filename = os.path.join(bundles_dir, f"{mod_name} - Thai Translation.zip")
+            else:
+                zip_filename = os.path.join(bundles_dir, f"{mod_name} ({variant_name}) - Thai Translation.zip")
                 
-            # Generate and write the README string directly into the zip
-            readme_content = generate_readme_text(actual_name, author, nexus_url)
-            zipf.writestr('คำแนะนำและเครดิต (README).txt', readme_content.encode('utf-8'))
-            print(f"  Added คำแนะนำและเครดิต (README).txt")
+            print(f"Creating {zip_filename}...")
+            
+            with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                # Add base th/ folder files
+                for f in th_folder_files:
+                    arcname = os.path.relpath(f, mods_dir)
+                    zipf.write(f, arcname)
+                    print(f"  Added {arcname}")
+                
+                # Add the specific th*.json for this variant, renaming it to th.json inside the zip
+                for f in variant_jsons:
+                    arcname = os.path.relpath(f, mods_dir)
+                    # rename th-variant.json to th.json
+                    dir_name = os.path.dirname(arcname)
+                    new_arcname = os.path.join(dir_name, 'th.json')
+                    zipf.write(f, new_arcname)
+                    print(f"  Added {arcname} as {new_arcname}")
+                    
+                # Generate and write README
+                readme_content = generate_readme_text(actual_name, author, nexus_url)
+                zipf.writestr('คำแนะนำและเครดิต (README).txt', readme_content.encode('utf-8'))
+                print(f"  Added คำแนะนำและเครดิต (README).txt")
                 
     print(f"\\n✅ All bundles created successfully in the '{bundles_dir}' folder!")
 

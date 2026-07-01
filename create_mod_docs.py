@@ -121,7 +121,7 @@ MOD_DATA = {
 
 README_TEMPLATE = """\
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/main_banner.png" alt="Stardew Valley Thai Translations" width="400">
+  <img src="{banner_url}" alt="{name} Thai Translation" width="400">
 </p>
 
 ---
@@ -180,6 +180,13 @@ def main():
             f"🔗 **ม็อดต้นฉบับ:** [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/{data['nexus_id']})"
             if data['nexus_id'] else "🔗 **ม็อดต้นฉบับ:** ไม่มีลิงก์ Nexus Mods"
         )
+        
+        banner_slug = folder_name.lower().replace(" ", "_").replace("[cp]_", "").strip("_")
+        banner_filename = f"{banner_slug}_banner.png"
+        if os.path.exists(os.path.join("banners", banner_filename)):
+            banner_url = f"https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/{banner_filename}"
+        else:
+            banner_url = "https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/main_banner.png"
 
         readme_content = README_TEMPLATE.format(
             name=data['name'],
@@ -187,6 +194,7 @@ def main():
             version=data['version'],
             description=data['description'],
             nexus_link=nexus_link,
+            banner_url=banner_url,
         )
 
         readme_path = os.path.join(mod_path, "README.md")

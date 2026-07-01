@@ -2,7 +2,13 @@
     "$schema": "https://smapi.io/schemas/i18n.json",
     // --- Translation Credit ---
     // Translation provided by: GitHub: AppleBoiy
-  // --- Locations ---
+    // นี่คือฉบับเพิ่มเติมสำหรับใช้กับส่วนเสริมต่างๆ เช่น
+    // - Ridgeside Village Expansion
+    // - East Scarp Expansion
+    // เนื่องจาก World Navigator ใช้ชื่อสถานที่จากเกมหลักเป็นหลัก
+    // จึงต้องเพิ่มชื่อสถานที่ของส่วนเสริมเหล่านี้เข้าไปใน locate 
+    // เพื่อให้ World Navigator สามารถนำทางไปยังสถานที่เหล่านั้นได้
+    // --- Locations ---
     "FarmHouse": "บ้านไร่",
     "Greenhouse": "เรือนกระจก",
     "FarmCave": "ถ้ำในไร่",
@@ -45,12 +51,12 @@
     "MasteryCave": "ถ้ำมาสเตอรี",
     "DesertFestival": "ทะเลทราย (เทศกาล)",
     "LewisBasement": "ห้องใต้ดินของลูอิส",
-  // --- General ---
+    // --- General ---
     "sentence_separator": " ",
     "word_separator": " ",
     "world_navigator_name": "World Navigator",
     "replace_mods_with_central_station": "เจอมอด {{modsToReplace}} แนะนำให้ลง Central Station จากนั้นค่อยแปลงคอนเทนต์แพ็คในฐานะผู้เล่นนะ มันจะช่วยให้ World Navigator นำทางไปตามที่ต่างๆ ได้ดีขึ้นเยอะเลย:",
-  // --- Generic Mod Config Menu (GMCM) ---
+    // --- Generic Mod Config Menu (GMCM) ---
     "gmcm_open_menu": "ปุ่มลัดเปิดเมนูนำทาง:",
     "gmcm_open_menu_tooltip": "เปิดเมนูนำทาง",
     "gmcm_lookup_more": "ปุ่มลัดดูข้อมูลเพิ่มเติม:",
@@ -62,10 +68,10 @@
     "gmcm_other_options": "ตัวเลือกอื่นๆ ในเกมสามารถปรับแต่งได้ในเมนูหลักของมอด World Navigator นะ",
     "open_wn": "เปิด World Navigator",
     "open_wn_with_keybind": "เปิด World Navigator ด้วยปุ่ม: {{keybindString}}",
-  // --- Items ---
+    // --- Items ---
     "Scrap_Paper_Name": "เศษกระดาษโน้ต",
     "Scrap_Paper_Description": "มีรอยจดเส้นทางบอกทิศเอาไว้อยู่",
-  // --- Navigation Messages ---
+    // --- Navigation Messages ---
     "attempting_to_find_directions": "กำลังหาทางจาก {{start}} ไป {{destination}}...",
     "attempting_to_find_directions_coordinates": "กำลังหาทางจาก {{start}} ไป {{destination}} {{coordinates}}...",
     "current_location": "จุดที่ยืนอยู่ตอนนี้",
@@ -115,7 +121,7 @@
     "reason_edge_unusable_locked": "สถานที่ {{locationName}} ยังไม่ปลดล็อกนะ",
     "no_route_needed": "ไม่ต้องใช้ระบบนำทางหรอก",
     "already_there": "คุณก็อยู่ที่นี่อยู่แล้วนี่นา",
-  // --- Directions ---
+    // --- Directions ---
     "northeast": "ตะวันออกเฉียงเหนือ",
     "north": "เหนือ",
     "northwest": "ตะวันตกเฉียงเหนือ",
@@ -133,7 +139,7 @@
     "southeast_section": "โซนตะวันออกเฉียงใต้",
     "east_section": "โซนตะวันออก",
     "central_section": "โซนตรงกลาง",
-  // --- Fast Travel Methods ---
+    // --- Fast Travel Methods ---
     "fast_travel_touchwarp": "แท่นวาร์ป",
     "fast_travel_door": "ประตู",
     "fast_travel_lockeddoorwarp": "ประตู",
@@ -144,7 +150,7 @@
     "fast_travel_miniobelisk": "เสาโอเบลิสก์จิ๋ว",
     "fast_travel_boat": "เรือ",
     "fast_travel_bus": "รถบัส",
-    "fast_travel_parrotexpress": "ขนส่งนกแก้ว",
+    "fast_travel_parrotexpress": "นกแก้วเอ็กซ์เพรส",
     "fast_travel_ladder": "บันได",
     "fast_travel_train": "รถไฟ",
     "please_leave_the_bridge": "รบกวนเดินออกจากสะพานก่อนนะ",
@@ -182,7 +188,7 @@
     "unable_to_get_to_next_here": "คุณไปต่อในเส้นทางของโซนนี้ตอนนี้ไม่ได้แฮะ",
     "transition_edge_to_human_readable_parsing_issue": "[[แปลงข้อมูลพัง ฝากรายงานคนทำมอดที]] - {{edgeData1}} {{edgeData2}}",
     "flood_fill_algorithm_abort": "ระบบหาเส้นทาง (Flood fill) ใน {{location}} ใช้เวลานานไปหน่อย ขอยกเลิกก่อนนะ",
-  // --- Menu UI ---
+    // --- Menu UI ---
     "menu_NPC": "ชาวเมือง / NPC",
     "menu_NPC_tooltip": "หาทางไปหาชาวเมืองหรือ NPC",
     "menu_quest": "เควสต์",
@@ -281,7 +287,7 @@
     "menu_npc_not_talked_to_tooltip": "วันนี้คุณยังไม่ได้พูดคุยกับ {{nameOfNPC}}",
     "menu_npc_greet_missing_notice": "ไม่พบตัวละคร NPC จำนวน {{number}} คนสำหรับใช้ทำเควสต์แนะนำตัวทำความรู้จัก คุณได้ถอนการติดตั้งมอดบางตัวออกไปหรือไม่? NPC ที่หายไป: {{list}}",
     "menu_npc_go_to_list": "กลับไปยังหน้ารายชื่อ NPC",
-  // --- Events Menu ---
+    // --- Events Menu ---
     "menu_events_title": "อีเวนต์ของวันนี้",
     "menu_events_condition_for_items": "เมื่อคุณมี {{itemString}}",
     "menu_events_condition_for_npc_singular": "เมื่อ {{nameOfNPC}} อยู่ที่นั่น",
@@ -294,7 +300,7 @@
     "menu_events_lookup_more_time_range": "เวลา: ตั้งแต่ {{start}} ถึง {{end}}",
     "menu_events_lookup_more_items": "ต้องมีไอเทม: {{itemString}}",
     "menu_events_lookup_more_npcs": "NPC ที่ต้องอยู่: {{listOfNamesOfNPCs}}",
-  // --- Options Menu ---
+    // --- Options Menu ---
     "menu_options_title": "ตั้งค่าระบบนำทาง",
     "menu_options_note_save_file": "หมายเหตุ: ถ้าไม่ได้บอกไว้เป็นอย่างอื่น พวกการตั้งค่าในหน้านี้จะถูกเซฟผูกกับไฟล์เซฟเกมนั้นๆ เลยนะ ไม่ใช่ตั้งค่าแยก",
     "menu_options_home_location_header": "ตำแหน่งบ้านของคุณ:",
@@ -343,14 +349,14 @@
     "menu_options_keybind_not_set": "ยังไม่ได้ตั้ง",
     "menu_options_report_bug": "ถ้าเจอบั๊กอยากแจ้งคนทำมอด ให้พิมพ์ \"worldnav log\" ในหน้าคอนโซล SMAPI แล้วเล่าอาการให้เขาฟังได้เลย",
     "menu_options_option_change_requires_cancel": "คุณเพิ่งเปลี่ยนตั้งค่าที่เกี่ยวกับการหาทาง แต่เส้นทางที่กำลังเดินอยู่มันยังไม่ได้อัปเดตนะ คุณต้องกดยกเลิกนำทางของรอบนี้ก่อน (กดปุ่ม {{buttonText}}) แล้วค่อยกดนำทางใหม่",
-  // --- POI Menu ---
+    // --- POI Menu ---
     "menu_poi_today_points_header": "จุดน่าแวะประจำวัน",
     "menu_poi_none": "ตอนนี้ไม่มีจุดน่าแวะเลยแฮะ (มอดตัวอื่นๆ สามารถส่งพิกัดมาแปะโชว์หน้านี้ได้นะ)",
     "menu_poi_uncategorized_name": "จุดน่าแวะอื่นๆ",
     "menu_poi_display_name_string": "ชื่อ: {{poiName}}",
     "menu_poi_location_name_string": "สถานที่: {{locationName}}",
     "menu_poi_location_and_section_name_string": "สถานที่: {{section}}ของ {{locationName}}",
-  // --- Scrap Paper ---
+    // --- Scrap Paper ---
     "scrap_header_to_end_location": "ทางเดินจาก{{section}}ของ {{locationName1}} ไปที่ {{locationName2}}",
     "scrap_header_to_end_location_with_section": "ทางเดินจาก{{section1}}ของ {{locationName1}} ไปที่{{section2}}ของ {{locationName2}}",
     "scrap_doodle_description_fish": "มีรูปลายเส้นวาดเป็นปลาพ่นฟองอากาศอยู่",
@@ -397,4 +403,113 @@
     "descriptive_guidance_local": "เดินไปทาง{{direction}} {{countLocal}} ช่อง แผนที่ถัดไปอยู่ห่างไปอีกประมาน {{countEnd}} ช่อง",
     "descriptive_guidance_local_to_destination": "เดินไปทาง{{direction}} {{countLocal}} ช่อง เป้าหมายอยู่ห่างไปอีกประมาน {{countEnd}} ช่อง",
     "descriptive_guidance_to_next": "เดินไปทาง{{direction}} {{countLocal}} ช่อง แล้วค่อย {{signText}}",
+    "keanuhouse": "บ้านของคีอานู",
+    "EastScarp_KeanuHouse": "บ้านของคีอานู",
+    "Custom_Ridgeside_RSVHiddenWarp": "จุดวาร์ปลับริดจ์ไซด์",
+    // Custom Map Locations: Ridgeside Village & East Scarp
+    "CSTourists": "นักท่องเที่ยว",
+    "Crops_Tilesheet": "แปลงปลูกพืช",
+    "Custom_Ridgeside_3Bros": "บ้านสามพี่น้อง",
+    "Custom_Ridgeside_3Bros2ndFloor": "บ้านสามพี่น้อง ชั้น 2",
+    "Custom_Ridgeside_AguarBasement": "ห้องใต้ดินของอากวาร์",
+    "Custom_Ridgeside_AguarCave": "ถ้ำของอากวาร์",
+    "Custom_Ridgeside_AguarCaveFixed": "ถ้ำของอากวาร์",
+    "Custom_Ridgeside_AguarCaveFixed_alt": "ถ้ำของอากวาร์",
+    "Custom_Ridgeside_AguarLab": "ห้องวิจัยของอากวาร์",
+    "Custom_Ridgeside_AlissaHouse": "บ้านของอลิสซ่า",
+    "Custom_Ridgeside_AlissaShed": "โรงเก็บของของอลิสซ่า",
+    "Custom_Ridgeside_AmethyneCorp": "บริษัทอะเมทิน",
+    "Custom_Ridgeside_AmethyneJewelry": "ร้านเครื่องประดับอะเมทิน",
+    "Custom_Ridgeside_AmethyneMine": "เหมืองอะเมทิน",
+    "Custom_Ridgeside_BertHouse": "บ้านของเบิร์ต",
+    "Custom_Ridgeside_BertHouse2ndFloor": "บ้านของเบิร์ต ชั้น 2",
+    "Custom_Ridgeside_BlairHouse": "บ้านของแบลร์",
+    "Custom_Ridgeside_EmberNight": "งานเทศกาลเอมเบอร์ไนต์",
+    "Custom_Ridgeside_EzekielHouse": "บ้านของเอซีเคียล",
+    "Custom_Ridgeside_EzekielPic": "รูปภาพของเอซีเคียล",
+    "Custom_Ridgeside_FayeHouse": "บ้านของเฟย์",
+    "Custom_Ridgeside_FreddieHouse": "บ้านของเฟรดดี้",
+    "Custom_Ridgeside_IanHouse": "บ้านของเอียน",
+    "Custom_Ridgeside_Island_S-June": "เกาะจินเจอร์ของจูน",
+    "Custom_Ridgeside_JericHouse": "บ้านของเจริก",
+    "Custom_Ridgeside_KennethHouse": "บ้านของเคนเนธ",
+    "Custom_Ridgeside_KiarraPick": "รูปภาพของเคียร่า",
+    "Custom_Ridgeside_LennyHouse": "บ้านของเลนนี่",
+    "Custom_Ridgeside_LogCabinEventHall": "โถงกิจกรรมล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinEventHall_Ballroom": "ห้องเต้นรำล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinEventHall_Birthday": "งานวันเกิดล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinEventHall_NightParty": "งานเลี้ยงกลางคืนล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinEventHall_WeddingReception": "งานแต่งงานล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinEventHall_WeddingReception_Temp": "งานแต่งงานล็อกเคบิน",
+    "Custom_Ridgeside_LogCabinHotel2ndFloor": "โรงแรมล็อกเคบิน ชั้น 2",
+    "Custom_Ridgeside_LogCabinHotel3rdFloor": "โรงแรมล็อกเคบิน ชั้น 3",
+    "Custom_Ridgeside_LogCabinHotelLobby": "ล็อบบี้โรงแรมล็อกเคบิน",
+    "Custom_Ridgeside_LolaShed": "โรงเก็บของของโลล่า",
+    "Custom_Ridgeside_MaddieHouse": "บ้านของแมดดี้",
+    "Custom_Ridgeside_MysticFalls1": "น้ำตกมิสติก 1",
+    "Custom_Ridgeside_MysticFalls2": "น้ำตกมิสติก 2",
+    "Custom_Ridgeside_MysticFalls3": "น้ำตกมิสติก 3",
+    "Custom_Ridgeside_OldRSVKids": "เด็กๆ ริดจ์ไซด์",
+    "Custom_Ridgeside_PaulaClinic": "คลินิกของพอลล่า",
+    "Custom_Ridgeside_PikaHouse": "บ้านของพิก้า",
+    "Custom_Ridgeside_PrincessVilleDate": "เดตปรินเซสวิลล์",
+    "Custom_Ridgeside_PurpleMansion": "คฤหาสน์สีม่วง",
+    "Custom_Ridgeside_PurpleMansion2ndFloor": "คฤหาสน์สีม่วง ชั้น 2",
+    "Custom_Ridgeside_PurpleMansion_Ball": "งานเต้นรำคฤหาสน์สีม่วง",
+    "Custom_Ridgeside_RSVAbandonedHouse": "บ้านร้างริดจ์ไซด์",
+    "Custom_Ridgeside_RSVCableCar": "กระเช้าลอยฟ้าริดจ์ไซด์",
+    "Custom_Ridgeside_RSVCliff": "หน้าผาริดจ์ไซด์",
+    "Custom_Ridgeside_RSVCliff_AlissaDate": "เดตหน้าผากับอลิสซ่า",
+    "Custom_Ridgeside_RSVCliff_FayeDate": "เดตหน้าผากับเฟย์",
+    "Custom_Ridgeside_RSVCorineDate": "เดตกับโครีน",
+    "Custom_Ridgeside_RSVEvacuationCenter": "ศูนย์หลบภัยริดจ์ไซด์",
+    "Custom_Ridgeside_RSVGathering": "จุดรวมพลริดจ์ไซด์",
+    "Custom_Ridgeside_RSVGreenhouse1": "เรือนกระจกริดจ์ไซด์ 1",
+    "Custom_Ridgeside_RSVGreenhouse2": "เรือนกระจกริดจ์ไซด์ 2",
+    "Custom_Ridgeside_RSVHiddenWarp2": "จุดวาร์ปลับริดจ์ไซด์ 2",
+    "Custom_Ridgeside_RSVJioShop": "ร้านของจิโอ",
+    "Custom_Ridgeside_RSVNinjaHouse": "บ้านนินจา",
+    "Custom_Ridgeside_RSVRoad": "ถนนริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSewers": "ท่อระบายน้ำริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSkyGazing": "จุดชมดาวริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSpiritRealm": "โลกวิญญาณริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSummitHouse": "บ้านยอดเขาริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSummitHouseNew": "บ้านยอดเขาริดจ์ไซด์",
+    "Custom_Ridgeside_RSVSummitShed": "โรงเก็บของบนยอดเขา",
+    "Custom_Ridgeside_RSVTheHike": "ทางเดินเขาริดจ์ไซด์",
+    "Custom_Ridgeside_RSVTheRide": "กระเช้าริดจ์ไซด์",
+    "Custom_Ridgeside_RSVTheRide_static": "กระเช้าริดจ์ไซด์",
+    "Custom_Ridgeside_RSVWestCliff": "หน้าผาฝั่งตะวันตกริดจ์ไซด์",
+    "Custom_Ridgeside_Ridge": "สันเขาริดจ์ไซด์",
+    "Custom_Ridgeside_RidgeFalls": "น้ำตกสันเขา",
+    "Custom_Ridgeside_RidgeForest": "ป่าสันเขา",
+    "Custom_Ridgeside_RidgePond": "สระน้ำสันเขา",
+    "Custom_Ridgeside_Ridge_KennethDate_OFF": "เดตกับเคนเนธ",
+    "Custom_Ridgeside_Ridge_KennethDate_ON": "เดตกับเคนเนธ",
+    "Custom_Ridgeside_RidgesideVillage": "หมู่บ้านริดจ์ไซด์",
+    "Custom_Ridgeside_RidgesideVillage_CookOff": "งานแข่งทำอาหารริดจ์ไซด์",
+    "Custom_Ridgeside_RidgesideVillage_Event": "กิจกรรมหมู่บ้านริดจ์ไซด์",
+    "Custom_Ridgeside_RidgesideVillage_Fashion": "งานแฟชั่นริดจ์ไซด์",
+    "Custom_Ridgeside_ShiroHouse": "บ้านของชิโร่",
+    "Custom_Ridgeside_SummitFarm": "ฟาร์มบนยอดเขา",
+    "Custom_Ridgeside_TortsRealm": "โลกของทอร์ต",
+    "Custom_Ridgeside_WeddingReceptionPic": "รูปภาพงานแต่งงาน",
+    "Custom_Ridgeside_ZuzuCableCarView": "วิวกระเช้าเมืองซูซู",
+    "EastScarp_AideenHouse": "บ้านของเอดิน",
+    "EastScarp_CommunityGreenhouse": "เรือนกระจกส่วนรวมอีสต์สการ์ป",
+    "EastScarp_DaleHouse": "บ้านของเดล",
+    "EastScarp_House1": "บ้านอีสต์สการ์ป 1",
+    "EastScarp_JasperHouse": "บ้านของแจสเปอร์",
+    "EastScarp_JessieHouse": "บ้านของเจสซี่",
+    "EastScarp_JojaBreakRoom": "ห้องพักพนักงานโจจ้ามาร์ท",
+    "EastScarp_KatarynaHouse": "บ้านของคาตาริน่า",
+    "EastScarp_KenStellaHouse": "บ้านของเคนและสเตลล่า",
+    "EastScarp_LanternRoom": "ห้องโคมไฟ",
+    "EastScarp_Lighthouse": "ประภาคาร",
+    "EastScarp_NTHouse": "บ้านของ N.T.",
+    "EastScarp_OrchardHouse": "บ้านสวนผลไม้ (Orchard House)",
+    "EastScarp_Playhouse": "โรงละคร",
+    "EastScarp_TheaterBreakroom": "ห้องพักนักแสดงโรงละคร",
+    "EastScarp_VetHouse": "คลินิกรักษาสัตว์",
+    "MountEvermore_Map": "เมานต์เอเวอร์มอร์"
 }

@@ -71,8 +71,10 @@ def main():
         if not os.path.isdir(mod_path):
             continue
             
-        zip_filename = os.path.join(bundles_dir, f"{mod_name} - Thai Translation.zip")
-        if not os.path.exists(zip_filename):
+        # Find all zip files for this mod variant
+        zip_files = glob.glob(os.path.join(bundles_dir, f"{glob.escape(mod_name)}*.zip"))
+        
+        if not zip_files:
             # Skip if no bundle was created for this mod
             continue
             
@@ -125,7 +127,7 @@ def main():
         
         # 3. Create GH Release
         gh_cmd = [
-            'gh', 'release', 'create', tag_name, zip_filename, 
+            'gh', 'release', 'create', tag_name, *zip_files, 
             '--title', title, 
             '--notes', notes
         ]
