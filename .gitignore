@@ -24,3 +24,6 @@ fix*.py
 
 # Logs
 *.log
+
+# Build Outputs / Release Zips
+bundles/
