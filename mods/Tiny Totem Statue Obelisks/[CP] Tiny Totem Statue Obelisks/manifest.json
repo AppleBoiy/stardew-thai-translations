@@ -1,0 +1,48 @@
+{
+  "Name": "Tiny Totem Statue Obelisks",
+  "Author": "JennaJuffuffles",
+  "Version": "2.2.1",
+  "MinimumApiVersion": "4.1.10",
+  "Description": "Replaces the large obelisks with their much smaller totem statue counterparts!",
+  "UniqueID": "JennaJuffuffles.Obelisk",
+  "UpdateKeys": ["Nexus:23118"],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.8.1"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "LemurKat.EastScarpe.CP",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "Lemurkat.EastScarp",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "Rafseazz.RSVCP",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "Lumisteria.MtVapius",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "jennajuffuffles.vineyardtravelpackage",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "DTZ.DowntownZuzuCP",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "Tikamin557.dam",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "AngelOfStars.Mrqifriendable",
+      "IsRequired": false
+    }
+  ],
+  "DeleteOldVersion": true
+}

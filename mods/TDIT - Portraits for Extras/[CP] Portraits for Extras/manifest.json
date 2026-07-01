@@ -1,0 +1,29 @@
+{
+  "Name": "TDIT - Portraits for Extras",
+  "Author": "cresolyn & Dolphin Is Not a Fish",
+  "Description": "Give portraits to various extra NPCs",
+  "Version": "1.3.0",
+  "UniqueID": "DolphINaF.ExtraPortraits",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+   "UpdateKeys": [ "Nexus:35358" ],  
+   "Dependencies": [
+      {
+         "UniqueID": "mushymato.PortraitsForAll",
+         "IsRequired": true
+      },
+      {
+         "UniqueID": "Spiderbuttons.CMCT",
+         "IsRequired": false
+      },  
+      {
+         "UniqueID": "Goldenrevolver.MaritimeSecrets",
+         "IsRequired": false
+      },    
+      {
+         "UniqueID": "thatotterthing.Biscuit",
+         "IsRequired": false
+      }, 	  
+   ],  
+}
