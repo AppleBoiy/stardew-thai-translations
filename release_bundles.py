@@ -82,16 +82,35 @@ def main():
             version = "1.0.0"
             
         sanitized_name = sanitize_tag_name(actual_name)
-        tag_name = f"{sanitized_name}-th-v{version}"
+        base_tag_name = f"{sanitized_name}-th-v{version}"
         
-        print(f"\\n📦 Processing: {actual_name} (v{version})")
-        print(f"  Expected Tag: {tag_name}")
+        print(f"\n📦 Processing: {actual_name} (v{version})")
         
-        if tag_exists(tag_name):
-            print(f"  ⏭️  Tag '{tag_name}' already exists. Skipping release.")
-            continue
+        tag_name = base_tag_name
+        rev = 1
+        latest_tag = base_tag_name
+        
+        if tag_exists(base_tag_name):
+            # Find the highest existing revision tag
+            while tag_exists(f"{base_tag_name}-rev{rev}"):
+                latest_tag = f"{base_tag_name}-rev{rev}"
+                rev += 1
+            else:
+                if rev > 1:
+                    latest_tag = f"{base_tag_name}-rev{rev-1}"
             
-        print(f"  🚀 New version detected! Preparing release...")
+            # Check if there are actual file changes in the remote repository since the latest tag
+            diff_cmd = ['git', 'diff', '--quiet', f"{latest_tag}..origin/main", '--', mod_path]
+            diff_result = subprocess.run(diff_cmd)
+            
+            if diff_result.returncode == 0:
+                print(f"  ⏭️  No changes in '{mod_path}' since '{latest_tag}'. Skipping.")
+                continue
+            else:
+                tag_name = f"{base_tag_name}-rev{rev}"
+                print(f"  ✨ Translation updates detected! Creating new revision: {tag_name}")
+        else:
+            print(f"  🚀 New version detected! Preparing release: {tag_name}")
         
         title = f"{actual_name} Thai Translation v{version}"
         notes = f"ไฟล์แปลภาษาไทยสำหรับม็อด {actual_name} เวอร์ชัน {version}"
