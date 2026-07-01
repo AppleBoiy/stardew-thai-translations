@@ -1,0 +1,12 @@
+{
+  "Config.EnableConsoleCommands.Name": "เปิดใช้งานคำสั่งคอนโซล",
+  "Config.EnableConsoleCommands.Desc": "เปิดใช้งานคำสั่งคอนโซลของ FTM\nการตั้งค่านี้จะมีผลหลังจากเริ่มเกม Stardew Valley ใหม่",
+  "Config.EnableContentPacks.Name": "เปิดใช้งานแพ็กเนื้อหา (Content Packs)",
+  "Config.EnableContentPacks.Desc": "เปิดใช้งานแพ็กเนื้อหาทั้งหมดของ FTM\nหากปิดใช้งาน จะใช้เฉพาะไฟล์ในโฟลเดอร์ FarmTypeManager/data เท่านั้น",
+  "Config.EnableTraceLogMessages.Name": "เปิดใช้งานข้อความล็อกบันทึกสถานะ (Trace Log)",
+  "Config.EnableTraceLogMessages.Desc": "เปิดใช้งานข้อความ [TRACE] ของ FTM ในไฟล์ล็อกของ SMAPI\nหากปิดใช้งาน ไฟล์ล็อกจะมีขนาดเล็กลง แต่อาจให้ข้อมูลเกี่ยวกับ FTM น้อยลง",
+  "Config.EnableEPUDebugMessages.Name": "เปิดใช้งานข้อความดีบั๊กของ EPU",
+  "Config.EnableEPUDebugMessages.Desc": "เปิดใช้งานข้อความดีบั๊กของ Expanded Preconditions Utility (EPU)\nสิ่งนี้มีประโยชน์เมื่อสร้างม็อดที่มีเงื่อนไขจำเพาะ (Preconditions)",
+  "Config.MonsterLimitPerLocation.Name": "จำกัดจำนวนมอนสเตอร์ต่อสถานที่",
+  "Config.MonsterLimitPerLocation.Desc": "จำนวนมอนสเตอร์สูงสุดที่ FTM จะอนุญาตให้มีบนแผนที่เดียวกันพร้อมกัน\nการใช้จำนวนที่น้อยลงจะช่วยเพิ่มเฟรมเรตของเกมได้ (แนะนำที่ 50)\nพิมพ์ NULL เพื่ออนุญาตให้มีมอนสเตอร์ได้ไม่จำกัด"
+}

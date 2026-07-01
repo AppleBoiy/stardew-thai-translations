@@ -12,7 +12,9 @@
 | **[Better Crafting](https://www.nexusmods.com/stardewvalley/mods/11115)** | Khloe Leclair | 2.18.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/11115) |
 | **[Convenient Inventory](https://www.nexusmods.com/stardewvalley/mods/10384)** | gaussfire | 1.6.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/10384) |
 | **[Deluxe Journal](https://www.nexusmods.com/stardewvalley/mods/43805)** | kauf0 | 1.4.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/43805) |
+| **[Farm Type Manager (FTM)](https://www.nexusmods.com/stardewvalley/mods/3231)** | Esca | 1.26.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3231) |
 | **[GI Extra locations - ContentPatcher](#)** | mistyspring | 1.5.1 | ⏳ รอแปล | - |
+| **[Item extensions](https://www.nexusmods.com/stardewvalley/mods/20357)** | mistyspring | 1.16.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/20357) |
 | **[StardewHack](https://www.nexusmods.com/stardewvalley/mods/3213)** | bcmpinc | 7.4 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3213) |
 | **[TDIT - Portraits for Extras](https://www.nexusmods.com/stardewvalley/mods/35358)** | cresolyn & Dolphin Is Not a Fish | 1.3.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/35358) |
 | **[Tiny Totem Statue Obelisks](https://www.nexusmods.com/stardewvalley/mods/23118)** | JennaJuffuffles | 2.2.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/23118) |
@@ -40,7 +42,8 @@
 * **Khloe Leclair** สำหรับ *Better Crafting*
 * **gaussfire** สำหรับ *Convenient Inventory*
 * **kauf0** สำหรับ *Deluxe Journal*
-* **mistyspring** สำหรับ *GI Extra locations - ContentPatcher*
+* **Esca** สำหรับ *Farm Type Manager (FTM)*
+* **mistyspring** สำหรับ *GI Extra locations - ContentPatcher* และ *Item extensions*
 * **Rafseazz** สำหรับ *Ridgeside Village Seasonal Outfits*
 * **bcmpinc** สำหรับ *StardewHack* และ *Wear More Rings*
 * **DaisyNiko** สำหรับ *Sword & Sorcery*
