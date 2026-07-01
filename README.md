@@ -1,7 +1,7 @@
 ยินดีต้อนรับสู่คอลเลกชันแพตช์ภาษาไทยสำหรับม็อดต่างๆ ของ Stardew Valley! ที่นี่มุ่งมั่นที่จะมอบเนื้อหาที่แปลแล้วเพื่อให้ผู้เล่นชาวไทยได้สนุกกับม็อดโปรดในภาษาของตัวเองครับ
 
 <p align="center">
-  <img src="banners/mods_banner.png" alt="รายการม็อด" width="300">
+  <img src="https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/mods_banner.png" alt="รายการม็อด" width="300">
 </p>
 
 รายชื่อม็อดที่รองรับในตอนนี้ พร้อมเครดิตผู้สร้างต้นฉบับ อย่าลืมไปดาวน์โหลดม็อดต้นฉบับและสนับสนุนผู้สร้างด้วยนะครับ!
@@ -25,7 +25,7 @@
 | **[World Navigator](https://www.nexusmods.com/stardewvalley/mods/28256)** | pneuma163 | 1.4.2 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/28256) |
 
 <p align="center">
-  <img src="banners/install_banner.png" alt="วิธีติดตั้ง" width="300">
+  <img src="https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/install_banner.png" alt="วิธีติดตั้ง" width="300">
 </p>
 
 1. ติดตั้ง [SMAPI](https://smapi.io/) และม็อดต้นฉบับตามรายการข้างบน
@@ -34,7 +34,7 @@
 4. เปิดเกมแล้วตั้งค่าภาษาเป็น **ภาษาไทย (Thai)**
 
 <p align="center">
-  <img src="banners/credits_banner.png" alt="เครดิต" width="300">
+  <img src="https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/credits_banner.png" alt="เครดิต" width="300">
 </p>
 
 ขอขอบคุณผู้สร้างม็อดต้นฉบับทุกท่านที่ทำสิ่งเหล่านี้ขึ้นมา!
