@@ -1,3 +1,5 @@
+import glob
+import subprocess
 #!/usr/bin/env python3
 import os
 import shutil
@@ -43,12 +45,12 @@ def create_app_bundle():
     if os.path.basename(project_root) == "scripts":
         project_root = os.path.dirname(project_root)
         
-    swift_source = os.path.join(project_root, "scripts", "InstallerApp.swift")
-    binary_dest = os.path.join(MACOS_DIR, APP_NAME)
+    app_executable = os.path.join(MACOS_DIR, "StardewThaiInstaller")
     
+    swift_files = glob.glob(os.path.join(project_root, "scripts", "*.swift"))
     print("🛠️ กำลังคอมไพล์โค้ด Swift...")
-    compile_cmd = f"swiftc -parse-as-library '{swift_source}' -o '{binary_dest}'"
-    result = os.system(compile_cmd)
+    swiftc_cmd = ["swiftc"] + swift_files + ["-o", app_executable, "-parse-as-library"]
+    result = subprocess.run(swiftc_cmd).returncode
     
     if result != 0:
         print("❌ เกิดข้อผิดพลาดในการคอมไพล์ Swift")
@@ -63,14 +65,25 @@ def create_app_bundle():
     custom_icon = os.path.join(project_root, "covers", "AppIcon_NoBg_clean.png")
     app_icon_dest = os.path.join(RESOURCES_DIR, "AppIcon.icns")
     if os.path.exists(custom_icon):
-        print("🎨 กำลังแปลงไฟล์รูปภาพเป็นไอคอนแอปด้วย Python...")
+        print("🎨 กำลังแปลงไฟล์รูปภาพเป็นไอคอนแอปด้วย sips & iconutil...")
         try:
-            from PIL import Image
-            img = Image.open(custom_icon)
-            img.save(app_icon_dest, format='ICNS')
-        except ImportError:
-            print("❌ ไม่พบโมดูล PIL ข้ามการแปลงไอคอน")
-            # Fallback to Stardew Valley icon
+            iconset_dir = os.path.join(project_root, "covers", "icon.iconset")
+            os.makedirs(iconset_dir, exist_ok=True)
+            
+            # Generate required sizes for macOS icon
+            sizes = [16, 32, 64, 128, 256, 512, 1024]
+            for size in sizes:
+                out_path = os.path.join(iconset_dir, f"icon_{size}x{size}.png")
+                subprocess.run(["sips", "-z", str(size), str(size), custom_icon, "--out", out_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                if size <= 512:
+                    out_path_2x = os.path.join(iconset_dir, f"icon_{size}x{size}@2x.png")
+                    subprocess.run(["sips", "-z", str(size*2), str(size*2), custom_icon, "--out", out_path_2x], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            
+            # Convert to icns
+            subprocess.run(["iconutil", "-c", "icns", iconset_dir, "-o", app_icon_dest], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            shutil.rmtree(iconset_dir)
+        except Exception as e:
+            print(f"❌ ไม่สามารถสร้างไอคอนได้: {e}")
             game_icon = os.path.expanduser("~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/Resources/App.icns")
             if os.path.exists(game_icon):
                 shutil.copy2(game_icon, app_icon_dest)
@@ -79,6 +92,10 @@ def create_app_bundle():
         game_icon = os.path.expanduser("~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/Resources/App.icns")
         if os.path.exists(game_icon):
             shutil.copy2(game_icon, app_icon_dest)
+            
+    # 7. Code Sign the App (Required for Apple Silicon)
+    print("🔐 กำลังเซ็นชื่อ (Codesign) แอปพลิเคชัน...")
+    subprocess.run(["codesign", "--force", "--deep", "--sign", "-", APP_DIR], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
     print(f"✅ สร้าง {APP_DIR} สำเร็จแล้ว!")
     print("✨ ลองเปิดหน้าต่าง Finder ไปที่โฟลเดอร์โปรเจกต์ แล้วดับเบิลคลิกเปิดแอปดูได้เลยครับ")

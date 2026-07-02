@@ -40,6 +40,11 @@ class InstallerViewModel: ObservableObject {
     ]
     @Published var logs: String = ""
     @Published var isWorking: Bool = false
+    @Published var showSuccessAlert: Bool = false
+    @Published var alertTitle: String = ""
+    @Published var alertMessage: String = ""
+    
+    let fileManager = FileManager.default
     
     init() {
         self.gameDir = (NSHomeDirectory() as NSString).appendingPathComponent("Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods")
@@ -49,6 +54,14 @@ class InstallerViewModel: ObservableObject {
     func log(_ message: String) {
         DispatchQueue.main.async {
             self.logs += message + "\n"
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            self.alertTitle = title
+            self.alertMessage = message
+            self.showSuccessAlert = true
         }
     }
     
@@ -146,6 +159,7 @@ class InstallerViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.isWorking = false
                 self.log("🎉 การดำเนินการเสร็จสิ้น! เริ่มเกมได้เลยครับ 🌾")
+                self.showAlert(title: "สำเร็จ!", message: "ดำเนินการติดตั้งม็อดและเครื่องมือเสร็จสมบูรณ์\nดูรายละเอียดเพิ่มเติมได้ที่หน้า 'บันทึกการทำงาน'")
             }
         }
     }
@@ -251,141 +265,349 @@ class InstallerViewModel: ObservableObject {
             self.log("  ⚠️ ไม่พบข้อความที่ต้องแพตช์ในม็อดที่เลือก")
         }
     }
+    
+    func injectGMCMDescriptions(style: Int) {
+        isWorking = true
+        logs = ""
+        
+        let fm = FileManager.default
+        let gDir = self.gameDir
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.log("🛠️ กำลังสแกนหาไฟล์ manifest.json ในโฟลเดอร์ Mods...")
+            
+            let enumerator = fm.enumerator(atPath: gDir)
+            var manifestFiles: [String] = []
+            
+            while let file = enumerator?.nextObject() as? String {
+                if file.hasSuffix("manifest.json") {
+                    manifestFiles.append(file)
+                }
+            }
+            
+            var foundCount = 0
+            var injectedCount = 0
+            var rollbackCount = 0
+            
+            let isRollback = (style == 3)
+            let dict = (style == 1) ? GMCMInjector.gamerDesc : GMCMInjector.normalDesc
+            
+            guard let nameRegex = try? NSRegularExpression(pattern: "\"Name\"\\s*:\\s*\"([^\"]+)\"", options: []),
+                  let descRegex = try? NSRegularExpression(pattern: "(\"Description\"\\s*:\\s*\")[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*(\")", options: []),
+                  let insertRegex = try? NSRegularExpression(pattern: "(\"Name\"\\s*:\\s*\"[^\"]+\"\\s*,)", options: []) else {
+                return
+            }
+            
+            if isRollback {
+                self.log("↩️ เริ่มคืนค่าเดิม (Rollback)...")
+                for file in manifestFiles {
+                    let fullPath = (gDir as NSString).appendingPathComponent(file)
+                    let backupPath = fullPath + ".bak"
+                    if fm.fileExists(atPath: backupPath) {
+                        do {
+                            if fm.fileExists(atPath: fullPath) {
+                                try fm.removeItem(atPath: fullPath)
+                            }
+                            try fm.moveItem(atPath: backupPath, toPath: fullPath)
+                            
+                            // Try to extract name for logging
+                            if let content = try? String(contentsOfFile: fullPath, encoding: .utf8) {
+                                let nsContent = content as NSString
+                                if let match = nameRegex.firstMatch(in: content, options: [], range: NSRange(location: 0, length: nsContent.length)) {
+                                    let modName = nsContent.substring(with: match.range(at: 1))
+                                    self.log("  ✅ คืนค่าเดิม: \(modName)")
+                                }
+                            }
+                            rollbackCount += 1
+                        } catch {
+                            self.log("❌ คืนค่าล้มเหลวที่ \(file)")
+                        }
+                    }
+                }
+                self.log("🎉 คืนค่าเดิมสำเร็จทั้งหมด: \(rollbackCount) ตัว")
+                self.showAlert(title: "สำเร็จ!", message: "คืนค่า GMCM เป็นภาษาอังกฤษเรียบร้อย")
+            } else {
+                let styleName = (style == 1) ? "เกมเมอร์" : "ทางการ"
+                self.log("🇹🇭 เริ่มแปลคำอธิบาย GMCM (สไตล์\(styleName))...")
+                
+                for file in manifestFiles {
+                    let fullPath = (gDir as NSString).appendingPathComponent(file)
+                    guard let content = try? String(contentsOfFile: fullPath, encoding: .utf8) else { continue }
+                    
+                    let nsContent = content as NSString
+                    guard let nameMatch = nameRegex.firstMatch(in: content, options: [], range: NSRange(location: 0, length: nsContent.length)) else { continue }
+                    
+                    let modName = nsContent.substring(with: nameMatch.range(at: 1))
+                    
+                    if let thaiDesc = dict[modName] {
+                        foundCount += 1
+                        
+                        var currentDesc = ""
+                        if let descMatch = descRegex.firstMatch(in: content, options: [], range: NSRange(location: 0, length: nsContent.length)) {
+                            // Extract just the value inside quotes
+                            let fullMatch = nsContent.substring(with: descMatch.range)
+                            currentDesc = fullMatch // We'll just compare roughly or replace anyway
+                        }
+                        
+                        // We replace if not already replaced
+                        if !content.contains("\"\(thaiDesc)\"") {
+                            let backupPath = fullPath + ".bak"
+                            if !fm.fileExists(atPath: backupPath) {
+                                try? fm.copyItem(atPath: fullPath, toPath: backupPath)
+                            }
+                            
+                            let escapedThaiDesc = thaiDesc.replacingOccurrences(of: "\"", with: "\\\"")
+                            
+                            var newContent = content
+                            let descMatches = descRegex.matches(in: content, options: [], range: NSRange(location: 0, length: nsContent.length))
+                            
+                            if !descMatches.isEmpty {
+                                newContent = descRegex.stringByReplacingMatches(in: content, options: [], range: NSRange(location: 0, length: nsContent.length), withTemplate: "$1\(escapedThaiDesc)$2")
+                                do {
+                                    try newContent.write(toFile: fullPath, atomically: true, encoding: .utf8)
+                                    self.log("  ✅ แปลสำเร็จ: \(modName)")
+                                    injectedCount += 1
+                                } catch {}
+                            } else {
+                                // Inject below Name
+                                let newTemplate = "$1\n  \"Description\": \"\(escapedThaiDesc)\","
+                                newContent = insertRegex.stringByReplacingMatches(in: content, options: [], range: NSRange(location: 0, length: nsContent.length), withTemplate: newTemplate)
+                                do {
+                                    try newContent.write(toFile: fullPath, atomically: true, encoding: .utf8)
+                                    self.log("  ✅ แทรกคำอธิบายสำเร็จ: \(modName)")
+                                    injectedCount += 1
+                                } catch {}
+                            }
+                        }
+                    }
+                }
+                self.log("=============================")
+                self.log("✨ พบม็อดที่รองรับ: \(foundCount) ตัว")
+                self.log("✨ ทำการแก้ไขสำเร็จ: \(injectedCount) ตัว")
+                self.log("🎉 การแปล GMCM เสร็จสิ้น!")
+                self.showAlert(title: "สำเร็จ!", message: "แปลเมนู GMCM เสร็จสมบูรณ์\nดูรายละเอียดเพิ่มเติมได้ที่หน้า 'บันทึกการทำงาน'")
+            }
+            
+            DispatchQueue.main.async {
+                self.isWorking = false
+            }
+        }
+    }
 }
 
 struct ContentView: View {
     @StateObject var vm = InstallerViewModel()
+    @State private var selection: String? = "Install"
     
     var body: some View {
         VStack(spacing: 0) {
-            // Header
+            // Global Header
             HStack {
-                Text("🌾 Stardew Valley Thai Translation Installer")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Spacer()
+                Label("โฟลเดอร์เกม (Mods):", systemImage: "folder.fill")
+                    .font(.headline)
+                TextField("Game Directory", text: $vm.gameDir)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button(action: { vm.selectGameDir() }) {
+                    Label("เลือก...", systemImage: "magnifyingglass")
+                }
             }
             .padding()
             .background(Color(NSColor.windowBackgroundColor))
             
             Divider()
             
-            VStack(spacing: 20) {
-                // Game Directory
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("📂 โฟลเดอร์เกม:").font(.headline).bold()
+            NavigationView {
+                // Sidebar
+                List(selection: $selection) {
+                    NavigationLink(destination: ModsInstallView(vm: vm), tag: "Install", selection: $selection) {
+                        Label("ติดตั้งม็อด", systemImage: "shippingbox.fill")
+                    }
+                    NavigationLink(destination: ToolsView(vm: vm), tag: "Tools", selection: $selection) {
+                        Label("เครื่องมือเสริม", systemImage: "wrench.and.screwdriver.fill")
+                    }
+                    NavigationLink(destination: LogsView(vm: vm), tag: "Logs", selection: $selection) {
+                        Label("บันทึกการทำงาน", systemImage: "doc.text.fill")
+                    }
+                }
+                .listStyle(SidebarListStyle())
+                .frame(minWidth: 200)
+                
+                // Default View
+                ModsInstallView(vm: vm)
+            }
+        }
+        .frame(minWidth: 800, minHeight: 600)
+        .alert(isPresented: $vm.showSuccessAlert) {
+            Alert(
+                title: Text(vm.alertTitle),
+                message: Text(vm.alertMessage),
+                dismissButton: .default(Text("ตกลง"))
+            )
+        }
+    }
+}
+
+struct ModsInstallView: View {
+    @ObservedObject var vm: InstallerViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            HStack {
+                Text("📦 เลือกม็อดที่จะติดตั้ง").font(.title2).bold()
+                Spacer()
+                Button("เลือกทั้งหมด") { for i in 0..<vm.mods.count { vm.mods[i].isEnabled = true } }
+                Button("ยกเลิก") { for i in 0..<vm.mods.count { vm.mods[i].isEnabled = false } }
+            }
+            
+            if vm.mods.isEmpty {
+                VStack {
+                    Spacer()
+                    Image(systemName: "shippingbox.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.secondary)
+                    Text("ไม่พบม็อดในโฟลเดอร์ mods/")
+                        .foregroundColor(.secondary)
+                        .padding(.top, 8)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List($vm.mods) { $mod in
                     HStack {
-                        TextField("Game Directory", text: $vm.gameDir)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        Button("เลือก...") {
-                            vm.selectGameDir()
+                        Toggle(isOn: $mod.isEnabled) {
+                            Text(mod.folderName).font(.body)
                         }
-                    }
-                }
-                
-                // Content (Mods & Patches)
-                HStack(alignment: .top, spacing: 20) {
-                    
-                    // Mods
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("📦 เลือกม็อดที่จะติดตั้ง").font(.headline)
-                            Spacer()
-                            Button("เลือกทั้งหมด") { for i in 0..<vm.mods.count { vm.mods[i].isEnabled = true } }
-                            Button("ยกเลิก") { for i in 0..<vm.mods.count { vm.mods[i].isEnabled = false } }
-                        }
-                        
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 10) {
-                                if vm.mods.isEmpty {
-                                    Text("ไม่พบม็อดในโฟลเดอร์ mods/").foregroundColor(.secondary)
-                                }
-                                ForEach($vm.mods) { $mod in
-                                    HStack {
-                                        Toggle(isOn: $mod.isEnabled) {
-                                            Text(mod.folderName).font(.title3)
-                                        }
-                                        Spacer()
-                                        if mod.variants.count > 1 && !mod.variants[0].folderName.isEmpty {
-                                            Picker("", selection: $mod.selectedVariant) {
-                                                ForEach(mod.variants, id: \.self) { v in
-                                                    Text(v.name).tag(v)
-                                                }
-                                            }
-                                            .pickerStyle(MenuPickerStyle())
-                                            .frame(width: 150)
-                                        }
-                                    }
+                        Spacer()
+                        if mod.variants.count > 1 && !mod.variants[0].folderName.isEmpty {
+                            Picker("", selection: $mod.selectedVariant) {
+                                ForEach(mod.variants, id: \.self) { v in
+                                    Text(v.name).tag(v)
                                 }
                             }
-                            .padding()
+                            .pickerStyle(MenuPickerStyle())
+                            .frame(width: 150)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(NSColor.controlBackgroundColor))
-                        .cornerRadius(8)
                     }
-                    
-                    // Patches
-                    VStack(alignment: .leading) {
-                        Text("🛠️ เครื่องมือเสริม (แพตช์ลบคำแปลซ้ำ)").font(.headline)
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 10) {
-                                ForEach($vm.patches) { $patch in
-                                    Toggle(isOn: $patch.isEnabled) {
-                                        Text(patch.name).font(.title3)
-                                    }
-                                }
-                            }
-                            .padding()
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(NSColor.controlBackgroundColor))
-                        .cornerRadius(8)
-                    }
+                    .padding(.vertical, 4)
                 }
-                
-                // Logs
-                VStack(alignment: .leading) {
-                    Text("📝 บันทึกการทำงาน:").font(.headline).bold()
-                    ScrollViewReader { proxy in
-                        ScrollView {
-                            Text(vm.logs)
-                                .font(.system(.body, design: .monospaced))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .id("LogBottom")
-                        }
-                        .frame(height: 120)
-                        .padding()
-                        .background(Color(NSColor.textBackgroundColor))
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color(NSColor.separatorColor), lineWidth: 1)
-                        )
-                        .onChange(of: vm.logs) { _ in
-                            withAnimation {
-                                proxy.scrollTo("LogBottom", anchor: .bottom)
-                            }
-                        }
-                    }
-                }
-                
-                // Actions
-                Button(action: {
-                    vm.startInstall()
-                }) {
-                    Text(vm.isWorking ? "⏳ กำลังทำงาน..." : "🚀 ดำเนินการตามที่เลือก")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.vertical, 8)
+                .listStyle(InsetListStyle())
+            }
+            
+            if #available(macOS 12.0, *) {
+                Button(action: { vm.startInstall() }) {
+                    Label(vm.isWorking ? "กำลังทำงาน..." : "ดำเนินการติดตั้งม็อด", systemImage: vm.isWorking ? "hourglass" : "play.fill")
                         .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
-                .disabled(vm.isWorking || (vm.mods.filter({$0.isEnabled}).isEmpty && vm.patches.filter({$0.isEnabled}).isEmpty))
+                .disabled(vm.isWorking || vm.mods.filter({$0.isEnabled}).isEmpty)
+            } else {
+                Button(action: { vm.startInstall() }) {
+                    Text(vm.isWorking ? "กำลังทำงาน..." : "ดำเนินการติดตั้งม็อด")
+                        .frame(maxWidth: .infinity)
+                }
+                .disabled(vm.isWorking || vm.mods.filter({$0.isEnabled}).isEmpty)
             }
-            .padding(20)
         }
-        .frame(minWidth: 800, minHeight: 600)
+        .padding()
+    }
+}
+
+struct ToolsView: View {
+    @ObservedObject var vm: InstallerViewModel
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 25) {
+                Text("🛠️ เครื่องมือเสริม (Tools)").font(.title).bold()
+                
+                GroupBox(label: Label("แพตช์ลบคำแปลซ้ำ", systemImage: "bandage.fill").font(.headline)) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("ลบวงเล็บภาษาอังกฤษหลังชื่อตัวละคร (เช่น East Scarp)")
+                            .foregroundColor(.secondary)
+                        
+                        ForEach($vm.patches) { $patch in
+                            Toggle(isOn: $patch.isEnabled) {
+                                Text(patch.name)
+                            }
+                        }
+                        
+                        Button(action: { vm.startInstall() }) {
+                            Label("รันแพตช์ลบคำแปลซ้ำ", systemImage: "bandage")
+                                .padding(.horizontal, 10)
+                        }
+                        .disabled(vm.isWorking || vm.patches.filter({$0.isEnabled}).isEmpty)
+                        .padding(.top, 8)
+                    }
+                    .padding(10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                
+                GroupBox(label: Label("แปลเมนู GMCM (GMCM Injector)", systemImage: "gearshape.2.fill").font(.headline)) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("แปลคำอธิบายม็อดในเมนูตั้งค่า Generic Mod Config Menu ให้เป็นภาษาไทย")
+                            .foregroundColor(.secondary)
+                        
+                        HStack(spacing: 15) {
+                            Button(action: { vm.injectGMCMDescriptions(style: 1) }) {
+                                Label(vm.isWorking ? "กำลังทำงาน..." : "สไตล์เกมเมอร์", systemImage: vm.isWorking ? "hourglass" : "gamecontroller.fill")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 5)
+                            }
+                            .disabled(vm.isWorking)
+                            
+                            Button(action: { vm.injectGMCMDescriptions(style: 2) }) {
+                                Label(vm.isWorking ? "กำลังทำงาน..." : "สไตล์ทางการ", systemImage: vm.isWorking ? "hourglass" : "briefcase.fill")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 5)
+                            }
+                            .disabled(vm.isWorking)
+                            
+                            Button(action: { vm.injectGMCMDescriptions(style: 3) }) {
+                                Label(vm.isWorking ? "กำลังทำงาน..." : "คืนค่าเดิม", systemImage: vm.isWorking ? "hourglass" : "arrow.uturn.backward")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 5)
+                            }
+                            .disabled(vm.isWorking)
+                        }
+                        .padding(.top, 8)
+                    }
+                    .padding(10)
+                }
+            }
+            .padding()
+        }
+    }
+}
+
+struct LogsView: View {
+    @ObservedObject var vm: InstallerViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("📝 บันทึกการทำงาน").font(.title2).bold()
+                .padding(.bottom, 5)
+            
+            ScrollViewReader { proxy in
+                ScrollView {
+                    Text(vm.logs.isEmpty ? "ยังไม่มีบันทึกการทำงาน..." : vm.logs)
+                        .font(.system(.body, design: .monospaced))
+                        .foregroundColor(vm.logs.isEmpty ? .secondary : .primary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .id("LogBottom")
+                }
+                .background(Color(NSColor.textBackgroundColor))
+                .cornerRadius(8)
+                .onChange(of: vm.logs) { _ in
+                    withAnimation {
+                        proxy.scrollTo("LogBottom", anchor: .bottom)
+                    }
+                }
+            }
+        }
+        .padding()
     }
 }
