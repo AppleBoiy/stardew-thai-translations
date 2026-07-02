@@ -69,11 +69,29 @@ def scan_mods():
 
         manifests = glob.glob(os.path.join(mod_path, "**", "manifest.json"), recursive=True)
         display_name = folder_name
+        version = "Unknown"
+        nexus_url = ""
         if manifests:
             try:
                 c = open(manifests[0], encoding="utf-8").read()
                 n = re.search(r'"Name"\s*:\s*"([^"]+)"', c)
                 if n: display_name = n.group(1)
+                
+                v = re.search(r'"Version"\s*:\s*"([^"]+)"', c)
+                if v: version = v.group(1)
+                
+                import json
+                try:
+                    m_json = json.loads(c)
+                    update_keys = m_json.get("UpdateKeys", [])
+                    for key in update_keys:
+                        if key.lower().startswith("nexus:"):
+                            nexus_id = key.split(":")[1].strip()
+                            nexus_url = f"https://www.nexusmods.com/stardewvalley/mods/{nexus_id}"
+                            break
+                except Exception:
+                    nk = re.search(r'"UpdateKeys"\s*:\s*\[\s*"Nexus:(\d+)"', c, re.IGNORECASE)
+                    if nk: nexus_url = f"https://www.nexusmods.com/stardewvalley/mods/{nk.group(1)}"
             except Exception:
                 pass
 
@@ -95,6 +113,8 @@ def scan_mods():
             "base_th":      base_th,
             "variants":     variants,
             "th_folders":   th_folders,
+            "version":      version,
+            "nexus_url":    nexus_url,
         })
     return result
 
@@ -202,7 +222,7 @@ def do_inject(game_mods_dir, mod_info, variant_name, log_fn):
 
     target_mod = find_installed_mod(game_mods_dir, fn, display_name)
     if not target_mod:
-        log_fn(f"  ⚠️  '{display_name}' ไม่พบในโฟลเดอร์เกม — ข้าม", "warn")
+        log_fn(f"  ⚠️  ข้ามคำแปล: ไม่พบโฟลเดอร์ม็อด '{display_name}' ในโฟลเดอร์ Mods ของคุณ (กรุณาติดตั้งม็อดต้นฉบับก่อน)", "warn")
         return False
 
     # Copy th/ asset folder
@@ -306,10 +326,14 @@ class TUI:
                     parts = [f"{self.BOLD}{v}{self.RST}" if v == vari else f"{self.DIM}{v}{self.RST}"
                              for v in all_v]
                     vsuf = f"  [{'/'.join(parts)}]"
-                print(f"  {self.CYN}{i:2d}{self.RST}. {chk} {m['display_name']}{vsuf}")
+                
+                meta = f" (โฟลเดอร์: {fn} | v{m['version']})"
+                print(f"  {self.CYN}{i:2d}{self.RST}. {chk} {m['display_name']}{vsuf}{self.DIM}{meta}{self.RST}")
+                if m["nexus_url"]:
+                    print(f"      {self.DIM}🔗 Link: {m['nexus_url']}{self.RST}")
             self.hr()
             print(f"  {self.DIM}[หมายเลข] เปิด/ปิด  |  [v<n>] เปลี่ยนเวอร์ชัน  |  [a] ทั้งหมด  |  [n] ยกเลิกทั้งหมด{self.RST}")
-            print(f"  {self.DIM}[ok] ติดตั้ง  |  [q] ออก{self.RST}")
+            print(f"  {self.DIM}[ok] ติดตั้งไฟล์แปล  |  [q] ออก{self.RST}")
 
         status_msg = ""
         while True:
@@ -318,7 +342,7 @@ class TUI:
             print(f"{self.BOLD}{self.BLU}  🌾 Stardew Valley Thai Translation Installer{self.RST}")
             print(f"{self.BOLD}{self.BLU}{'='*52}{self.RST}")
             
-            self.h1("🗂️  เลือกม็อดที่ต้องการติดตั้ง")
+            self.h1("🗂️  เลือกไฟล์แปลม็อดที่จะติดตั้ง (กรุณาลงม็อดต้นฉบับไว้ล่วงหน้า)")
             show_list()
             
             if status_msg:
@@ -383,12 +407,12 @@ class TUI:
                     selected_patches.append(PATCH_TARGETS[int(p)-1])
 
         if not selected and not selected_patches:
-            self.warn("ไม่ได้เลือกม็อดใดและไม่ต้องการแพตช์ — ยกเลิก"); sys.exit(0)
+            self.warn("ไม่ได้เลือกไฟล์แปลม็อดใดๆ และไม่ต้องการแพตช์ — ยกเลิก"); sys.exit(0)
 
         if selected:
-            self.h1(f"🚀 กำลังติดตั้ง {len(selected)} ม็อด…")
+            self.h1(f"🚀 กำลังติดตั้งไฟล์แปลสำหรับ {len(selected)} ม็อด…")
         else:
-            self.h1("🚀 ข้ามการติดตั้งม็อด (ดำเนินการแพตช์อย่างเดียว)…")
+            self.h1("🚀 ข้ามการติดตั้งไฟล์แปลม็อด (ดำเนินการแพตช์อย่างเดียว)…")
         self.hr()
 
         def log_fn(msg, tag=""):
@@ -407,9 +431,9 @@ class TUI:
 
         self.hr()
         if err_n == 0:
-            self.ok(f"✅ ติดตั้งสำเร็จ {ok_n}/{len(selected)} ม็อด")
+            self.ok(f"✅ ติดตั้งไฟล์แปลสำเร็จ {ok_n}/{len(selected)} ม็อด")
         else:
-            self.warn(f"⚠️  ติดตั้งสำเร็จ {ok_n}/{len(selected)} ม็อด  (ไม่สำเร็จ {err_n})")
+            self.warn(f"⚠️  ติดตั้งไฟล์แปลสำเร็จ {ok_n}/{len(selected)} ม็อด (ไม่สำเร็จ {err_n})")
 
         try: input("\nกด Enter เพื่อปิด...")
         except Exception: pass
@@ -491,7 +515,7 @@ def launch_gui():
             # Title bar
             top = ttk.Frame(self, style="Surf.TFrame", padding=(24, 16))
             top.pack(fill=tk.X)
-            ttk.Label(top, text="🌾 Thai Translation Installer", style="H1.TLabel").pack(side=tk.LEFT)
+            ttk.Label(top, text="🌾 Thai Translation Installer (ตัวลงไฟล์แปล)", style="H1.TLabel").pack(side=tk.LEFT)
             ttk.Label(top, text="by AppleBoiy", style="Dim.TLabel", background=self.SURF).pack(side=tk.LEFT, padx=12, pady=(6,0))
 
             # Main container with padding
@@ -501,7 +525,7 @@ def launch_gui():
             # Path row
             pf = ttk.Frame(main_container)
             pf.pack(fill=tk.X, pady=(0, 16))
-            ttk.Label(pf, text="📂 โฟลเดอร์เกม:").pack(side=tk.LEFT)
+            ttk.Label(pf, text="📂 โถลเดอร์ Mods ของเกม:").pack(side=tk.LEFT)
             tk.Entry(pf, textvariable=self.game_mods_dir, bg=self.SURF2, fg=self.FG, insertbackground=self.FG, relief="flat", font=("SF Mono", 12), bd=8).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(12, 8))
             self._btn(pf, "เลือก...", self._browse, self.ACC2).pack(side=tk.LEFT)
 
@@ -533,7 +557,7 @@ def launch_gui():
             # Extra Options
             opt_container = ttk.Frame(main_container, padding=(0, 8))
             opt_container.pack(fill=tk.X)
-            ttk.Label(opt_container, text="🛠️ ตัวเลือกเสริม: ลบวงเล็บภาษาอังกฤษซ้ำซ้อนในม็อดต่อไปนี้", style="Dim.TLabel").pack(anchor=tk.W, pady=(0, 4))
+            ttk.Label(opt_container, text="🛠️ ตัวเลือกปรับแต่ง: ลบชื่ออังกฤษในวงเล็บ (เช่น 'เอลี (Eli)' -> 'เอลี') จากไฟล์แปลของม็อดต่อไปนี้", style="Dim.TLabel").pack(anchor=tk.W, pady=(0, 4))
             for target in PATCH_TARGETS:
                 tk.Checkbutton(opt_container, text=target["display"], variable=self.patch_targets[target["id"]], bg=self.BG_C, fg=self.ACCENT, selectcolor=self.SURF, activebackground=self.BG_C, activeforeground=self.ACCENT, cursor="hand2", font=("SF Pro Display", 13)).pack(anchor=tk.W, padx=(16, 0))
 
@@ -550,7 +574,7 @@ def launch_gui():
             self.log.tag_configure("dim", foreground=self.FGD)
 
             # Install button
-            self.ibtn = tk.Button(bot_container, text="🚀  ติดตั้งคำแปลที่เลือก", command=self._install, bg=self.ACCENT, fg="#000000", activebackground="#28A745", activeforeground="#000000", relief="flat", bd=0, cursor="hand2", font=("SF Pro Display", 15, "bold"), padx=24, pady=12)
+            self.ibtn = tk.Button(bot_container, text="🚀  ดำเนินการติดตั้งไฟล์แปลที่เลือก", command=self._install, bg=self.ACCENT, fg="#000000", activebackground="#28A745", activeforeground="#000000", relief="flat", bd=0, cursor="hand2", font=("SF Pro Display", 15, "bold"), padx=24, pady=12)
             self.ibtn.pack(fill=tk.X)
 
         def _populate(self):
@@ -563,9 +587,13 @@ def launch_gui():
                 row = tk.Frame(self.mlf, bg=bg)
                 row.pack(fill=tk.X)
                 
+                # Checkbox container
+                left_f = tk.Frame(row, bg=bg)
+                left_f.pack(side=tk.LEFT, fill=tk.Y, padx=(8, 0))
+                
                 # Custom Checkbox via Label
-                chk_lbl = tk.Label(row, bg=bg, fg=self.ACCENT if state["enabled"].get() else self.FGD, font=("Arial", 18), cursor="hand2", width=3, pady=8)
-                chk_lbl.pack(side=tk.LEFT, padx=(8, 0))
+                chk_lbl = tk.Label(left_f, bg=bg, fg=self.ACCENT if state["enabled"].get() else self.FGD, font=("Arial", 18), cursor="hand2", width=3, pady=4)
+                chk_lbl.pack(side=tk.TOP, anchor="nw")
                 
                 def toggle(e, s=state, l=chk_lbl):
                     s["enabled"].set(not s["enabled"].get())
@@ -573,21 +601,43 @@ def launch_gui():
                 
                 chk_lbl.config(text="◉" if state["enabled"].get() else "◯")
                 chk_lbl.bind("<Button-1>", toggle)
-
-                # Mod Name (also clickable to toggle)
-                name_lbl = tk.Label(row, text=mod["display_name"], bg=bg, fg=self.FG, font=("SF Pro Display", 13), cursor="hand2", anchor="w", pady=8)
-                name_lbl.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=4)
+                
+                # Info column
+                info_f = tk.Frame(row, bg=bg)
+                info_f.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=4, pady=4)
+                
+                # Mod Name Label
+                name_lbl = tk.Label(info_f, text=f"{mod['display_name']}", bg=bg, fg=self.FG, font=("SF Pro Display", 13, "bold"), cursor="hand2", anchor="w")
+                name_lbl.pack(side=tk.TOP, fill=tk.X, anchor="w")
                 name_lbl.bind("<Button-1>", toggle)
+                
+                # Meta row (folder + version + link)
+                meta_f = tk.Frame(info_f, bg=bg)
+                meta_f.pack(side=tk.TOP, fill=tk.X, anchor="w", pady=(2, 0))
+                
+                folder_txt = f"📁 โฟลเดอร์: {mod['folder_name']}   |   v{mod['version']}"
+                tk.Label(meta_f, text=folder_txt, bg=bg, fg=self.FGD, font=("SF Pro Display", 10)).pack(side=tk.LEFT)
+                
+                if mod["nexus_url"]:
+                    link_lbl = tk.Label(meta_f, text="🔗 Nexus Mods", bg=bg, fg=self.ACC2, font=("SF Pro Display", 10, "underline"), cursor="hand2")
+                    link_lbl.pack(side=tk.LEFT, padx=12)
+                    link_lbl.bind("<Button-1>", lambda e, url=mod["nexus_url"]: self._open_url(url))
+                
+                # Variants Picker on the Right
+                right_f = tk.Frame(row, bg=bg)
+                right_f.pack(side=tk.RIGHT, fill=tk.Y, padx=(0, 16))
                 
                 all_v = state["all_variants"]
                 if len(all_v) > 1:
-                    tk.Label(row, text="เวอร์ชัน:", bg=bg, fg=self.FGD, font=("SF Pro Display", 12)).pack(side=tk.RIGHT, padx=(0, 4))
-                    
-                    # Style combobox briefly
-                    cb = ttk.Combobox(row, textvariable=state["variant"], values=all_v, state="readonly", width=12, font=("SF Pro Display", 12))
-                    cb.pack(side=tk.RIGHT, padx=(0, 16))
+                    tk.Label(right_f, text="เวอร์ชันแปล:", bg=bg, fg=self.FGD, font=("SF Pro Display", 11)).pack(side=tk.LEFT, padx=(0, 4))
+                    cb = ttk.Combobox(right_f, textvariable=state["variant"], values=all_v, state="readonly", width=12, font=("SF Pro Display", 11))
+                    cb.pack(side=tk.LEFT)
                 else:
-                    tk.Label(row, text="มาตรฐาน", bg=bg, fg=self.FGD, font=("SF Pro Display", 12), padx=16).pack(side=tk.RIGHT)
+                    tk.Label(right_f, text="มาตรฐาน", bg=bg, fg=self.FGD, font=("SF Pro Display", 11)).pack(side=tk.LEFT, padx=12)
+
+        def _open_url(self, url):
+            import webbrowser
+            webbrowser.open(url)
 
         def _browse(self):
             d = filedialog.askdirectory(title="เลือกโฟลเดอร์ Mods", initialdir=self.game_mods_dir.get())
@@ -626,14 +676,14 @@ def launch_gui():
             selected_patches = [t for t in PATCH_TARGETS if self.patch_targets[t["id"]].get()]
             
             if not selected and not selected_patches:
-                messagebox.showwarning("ยังไม่ได้เลือก", "กรุณาเลือกม็อดอย่างน้อย 1 ตัว หรือติ๊กเลือกแพตช์เสริม"); return
+                messagebox.showwarning("ยังไม่ได้เลือก", "กรุณาเลือกไฟล์แปลม็อดอย่างน้อย 1 ตัว หรือเลือกแพตช์เสริม"); return
             self.ibtn.configure(state="disabled", text="⏳ กำลังทำงาน...")
             self.update()
             
             if selected:
-                self._log(f"\n📦 ติดตั้ง {len(selected)} ม็อด...")
+                self._log(f"\n📦 ติดตั้งไฟล์แปล {len(selected)} ม็อด...")
             else:
-                self._log("\n📦 ข้ามการติดตั้งม็อด...")
+                self._log("\n📦 ข้ามการติดตั้งไฟล์แปล...")
             ok_n = err_n = 0
             for mod, variant in selected:
                 if do_inject(game_dir, mod, variant, lambda msg, tag="": self._log(msg, tag)): ok_n += 1
@@ -645,12 +695,12 @@ def launch_gui():
                 
             tag = "ok" if err_n == 0 else "warn"
             if selected:
-                self._log(f"\n{'✅' if err_n == 0 else '⚠️'} ติดตั้ง {ok_n}/{len(selected)} ม็อด", tag)
-            self.ibtn.configure(state="normal", text="🚀  ดำเนินการตามที่เลือก")
+                self._log(f"\n{'✅' if err_n == 0 else '⚠️'} ติดตั้งไฟล์แปล {ok_n}/{len(selected)} ม็อด", tag)
+            self.ibtn.configure(state="normal", text="🚀  ดำเนินการติดตั้งไฟล์แปลที่เลือก")
             if err_n == 0:
-                msg = f"ติดตั้งครบ {ok_n} ม็อดแล้ว!\n" if selected else "การดำเนินการเสร็จสิ้น!\n"
+                msg = f"ติดตั้งไฟล์แปลครบ {ok_n} ม็อดแล้ว!\n" if selected else "การดำเนินการเสร็จสิ้น!\n"
                 if selected_patches: msg += "(และแพตช์คำแปลเรียบร้อย)\n"
-                messagebox.showinfo("สำเร็จ 🎉", msg + "เริ่มเกมได้เลยครับ 🌾")
+                messagebox.showinfo("สำเร็จ 🎉", msg + "คำชี้แจง: กรุณาลงม็อดต้นฉบับก่อนรันเกมด้วยนะครับ\nเริ่มเกมได้เลยครับ 🌾")
 
     App().mainloop()
 

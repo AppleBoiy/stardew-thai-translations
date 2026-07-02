@@ -155,8 +155,8 @@ def main():
         else:
             print(f"  🚀 New version detected! Preparing release: {tag_name}")
             
-        title = "Stardew Valley Thai Installer (Mac App)"
-        notes = "แอปพลิเคชันติดตั้งม็อดแปลภาษาไทยสำหรับผู้ใช้ Mac\n- ใช้งานง่ายแค่ดับเบิลคลิกเปิด\n- ไม่ต้องลง Python หรือรันสคริปต์ผ่าน Terminal"
+        title = "Stardew Valley Thai Translation Installer (Mac App)"
+        notes = "แอปพลิเคชันติดตั้งไฟล์แปลภาษาไทยของม็อดสำหรับผู้ใช้ Mac\n- ใช้งานง่ายแค่ดับเบิลคลิกเปิด\n- ไม่ต้องลง Python หรือรันสคริปต์ผ่าน Terminal"
         
         success, _ = run_command(['git', 'tag', tag_name], dry_run=args.dry_run)
         if success:
