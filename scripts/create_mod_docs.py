@@ -169,7 +169,11 @@ README_TEMPLATE = """\
 """
 
 def main():
-    mods_dir = "mods"
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+    mods_dir = os.path.join(ROOT_DIR, "mods")
+    banners_dir = os.path.join(ROOT_DIR, "banners")
+
     for folder_name, data in MOD_DATA.items():
         mod_path = os.path.join(mods_dir, folder_name)
         if not os.path.exists(mod_path):
@@ -183,7 +187,7 @@ def main():
         
         banner_slug = folder_name.lower().replace(" ", "_").replace("[cp]_", "").strip("_")
         banner_filename = f"{banner_slug}_banner.png"
-        if os.path.exists(os.path.join("banners", banner_filename)):
+        if os.path.exists(os.path.join(banners_dir, banner_filename)):
             banner_url = f"https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/{banner_filename}"
         else:
             banner_url = "https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/banners/main_banner.png"

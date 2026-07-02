@@ -88,10 +88,13 @@ def merge_and_write(base_path, overlay_path, out_path):
 
 
 def main():
-    bundles_dir = 'bundles'
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+    
+    bundles_dir = os.path.join(ROOT_DIR, 'bundles')
     os.makedirs(bundles_dir, exist_ok=True)
 
-    mods_dir = 'mods'
+    mods_dir = os.path.join(ROOT_DIR, 'mods')
 
     for mod_name in sorted(os.listdir(mods_dir)):
         mod_path = os.path.join(mods_dir, mod_name)

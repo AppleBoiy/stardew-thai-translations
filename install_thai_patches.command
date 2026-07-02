@@ -133,6 +133,44 @@ def find_installed_mod(game_mods_dir, folder_name, display_name):
     return None
 
 
+def patch_east_scarp(game_mods_dir, log_fn):
+    """ลบวงเล็บภาษาอังกฤษใน th.json ของ East Scarp"""
+    east_scarp_dir = find_installed_mod(game_mods_dir, "East Scarp Core", "East Scarp")
+    if not east_scarp_dir:
+        flat = os.path.join(game_mods_dir, "East Scarp REMASTERED", "East Scarp Core")
+        if os.path.isdir(flat):
+            east_scarp_dir = flat
+        else:
+            return
+
+    th_path = os.path.join(east_scarp_dir, "i18n", "th.json")
+    if not os.path.isfile(th_path):
+        return
+
+    try:
+        with open(th_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        pattern = re.compile(r'([\u0E00-\u0E7F]+)\s*\([A-Za-z0-9\s\.\-_\']+\)')
+        modified_count = 0
+        for key, value in data.items():
+            if key.startswith("config."): continue
+            if isinstance(value, str):
+                new_value = pattern.sub(r'\1', value)
+                if new_value != value:
+                    data[key] = new_value
+                    modified_count += 1
+
+        if modified_count > 0:
+            with open(th_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+            log_fn(f"  ✅ แพตช์ East Scarp สำเร็จ! (ลบวงเล็บภาษาอังกฤษ {modified_count} จุด)", "ok")
+        else:
+            log_fn("  ✅ East Scarp ปกติดี (ไม่พบวงเล็บที่ต้องลบ)", "dim")
+    except Exception as e:
+        log_fn(f"  ❌ แพตช์ East Scarp ล้มเหลว: {e}", "warn")
+
+
 def do_inject(game_mods_dir, mod_info, variant_name, log_fn):
     fn           = mod_info["folder_name"]
     display_name = mod_info["display_name"]
@@ -308,10 +346,15 @@ class TUI:
         # ── Install ──
         selected = [(m, variants[m["folder_name"]]["chosen"])
                     for m in mods if enabled[m["folder_name"]]]
-        if not selected:
-            self.warn("ไม่ได้เลือกม็อดใด — ยกเลิก"); sys.exit(0)
+        do_patch = self.ask("\nต้องการแพตช์แก้ไขคำแปล East Scarp (ลบวงเล็บภาษาอังกฤษ) หรือไม่? [y/N]:", "n").lower() == 'y'
 
-        self.h1(f"🚀 กำลังติดตั้ง {len(selected)} ม็อด…")
+        if not selected and not do_patch:
+            self.warn("ไม่ได้เลือกม็อดใดและไม่ต้องการแพตช์ — ยกเลิก"); sys.exit(0)
+
+        if selected:
+            self.h1(f"🚀 กำลังติดตั้ง {len(selected)} ม็อด…")
+        else:
+            self.h1("🚀 ข้ามการติดตั้งม็อด (ดำเนินการแพตช์อย่างเดียว)…")
         self.hr()
 
         def log_fn(msg, tag=""):
@@ -323,6 +366,10 @@ class TUI:
         for mod, variant in selected:
             if do_inject(game_dir, mod, variant, log_fn): ok_n  += 1
             else:                                         err_n += 1
+
+        if do_patch:
+            log_fn("\n🛠️  กำลังแพตช์คำแปล East Scarp...")
+            patch_east_scarp(game_dir, log_fn)
 
         self.hr()
         if err_n == 0:
@@ -372,6 +419,7 @@ def launch_gui():
                     "variant": tk.StringVar(value=all_v[0]),
                     "all_variants": all_v,
                 }
+            self.patch_es = tk.BooleanVar(value=False)
             self._build()
             self.geometry("900x680")
             
@@ -447,6 +495,11 @@ def launch_gui():
                 canvas.yview_scroll(int(-1 * delta), "units")
             canvas.bind_all("<MouseWheel>", _on_mousewheel)
             self._populate()
+
+            # Extra Options
+            opt_container = ttk.Frame(main_container, padding=(0, 8))
+            opt_container.pack(fill=tk.X)
+            tk.Checkbutton(opt_container, text="🛠️ แพตช์แก้ไขคำแปล East Scarp (ลบวงเล็บภาษาอังกฤษซ้ำซ้อน)", variable=self.patch_es, bg=self.BG_C, fg=self.ACCENT, selectcolor=self.SURF, activebackground=self.BG_C, activeforeground=self.ACCENT, cursor="hand2", font=("SF Pro Display", 13)).pack(anchor=tk.W)
 
             # Bottom container (Log + Install Button)
             bot_container = ttk.Frame(main_container)
@@ -533,20 +586,32 @@ def launch_gui():
             if not os.path.isdir(game_dir):
                 messagebox.showerror("ไม่พบโฟลเดอร์", f"ไม่พบ:\n{game_dir}"); return
             selected = [(m, self.mod_state[m["folder_name"]]["variant"].get()) for m in self.mods if self.mod_state[m["folder_name"]]["enabled"].get()]
-            if not selected:
-                messagebox.showwarning("ยังไม่ได้เลือก", "กรุณาเลือกม็อดอย่างน้อย 1 ตัว"); return
-            self.ibtn.configure(state="disabled", text="⏳ กำลังติดตั้ง...")
+            if not selected and not self.patch_es.get():
+                messagebox.showwarning("ยังไม่ได้เลือก", "กรุณาเลือกม็อดอย่างน้อย 1 ตัว หรือติ๊กเลือกแพตช์ East Scarp"); return
+            self.ibtn.configure(state="disabled", text="⏳ กำลังทำงาน...")
             self.update()
-            self._log(f"\n📦 ติดตั้ง {len(selected)} ม็อด...")
+            
+            if selected:
+                self._log(f"\n📦 ติดตั้ง {len(selected)} ม็อด...")
+            else:
+                self._log("\n📦 ข้ามการติดตั้งม็อด...")
             ok_n = err_n = 0
             for mod, variant in selected:
                 if do_inject(game_dir, mod, variant, lambda msg, tag="": self._log(msg, tag)): ok_n += 1
                 else: err_n += 1
+                
+            if self.patch_es.get():
+                self._log("\n🛠️  กำลังแพตช์คำแปล East Scarp...")
+                patch_east_scarp(game_dir, lambda msg, tag="": self._log(msg, tag))
+                
             tag = "ok" if err_n == 0 else "warn"
-            self._log(f"\n{'✅' if err_n == 0 else '⚠️'} ติดตั้ง {ok_n}/{len(selected)} ม็อด", tag)
-            self.ibtn.configure(state="normal", text="🚀  ติดตั้งคำแปลที่เลือก")
+            if selected:
+                self._log(f"\n{'✅' if err_n == 0 else '⚠️'} ติดตั้ง {ok_n}/{len(selected)} ม็อด", tag)
+            self.ibtn.configure(state="normal", text="🚀  ดำเนินการตามที่เลือก")
             if err_n == 0:
-                messagebox.showinfo("สำเร็จ 🎉", f"ติดตั้งครบ {ok_n} ม็อดแล้ว!\nเริ่มเกมได้เลยครับ 🌾")
+                msg = f"ติดตั้งครบ {ok_n} ม็อดแล้ว!\n" if selected else "การดำเนินการเสร็จสิ้น!\n"
+                if self.patch_es.get(): msg += "(และแพตช์ East Scarp เรียบร้อย)\n"
+                messagebox.showinfo("สำเร็จ 🎉", msg + "เริ่มเกมได้เลยครับ 🌾")
 
     App().mainloop()
 

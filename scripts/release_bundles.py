@@ -59,8 +59,11 @@ def main():
     parser.add_argument('--dry-run', action='store_true', help='Simulate actions without modifying git or pushing')
     args = parser.parse_args()
 
-    mods_dir = 'mods'
-    bundles_dir = 'bundles'
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+    
+    mods_dir = os.path.join(ROOT_DIR, 'mods')
+    bundles_dir = os.path.join(ROOT_DIR, 'bundles')
     
     if not os.path.exists(bundles_dir):
         print("❌ 'bundles' directory not found. Please run create_bundles.py first.")
