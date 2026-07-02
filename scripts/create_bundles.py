@@ -164,6 +164,18 @@ def main():
                     zipf.write(ext_path, os.path.join(i18n_dir, 'th.json'))
                     print(f"  Added th-{variant_name}.json as th.json")
 
+    # Create Installer Bundle
+    app_dir = os.path.join(ROOT_DIR, "StardewThaiInstaller.app")
+    if os.path.exists(app_dir):
+        import subprocess
+        print(f"\n📦 Creating Installer Bundle...")
+        installer_zip = os.path.join(bundles_dir, "StardewThaiInstaller-Mac.zip")
+        if os.path.exists(installer_zip):
+            os.remove(installer_zip)
+        # Using system zip to preserve symlinks and executable permissions
+        subprocess.run(["zip", "-ryq", installer_zip, "StardewThaiInstaller.app"], cwd=ROOT_DIR)
+        print(f"  Added StardewThaiInstaller.app")
+
     print(f"\n✅ All bundles created in '{bundles_dir}/'!")
 
 

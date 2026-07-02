@@ -139,5 +139,37 @@ def main():
         if success and not args.dry_run:
             print(f"  ✅ Successfully released {tag_name}!")
 
+    # 4. Release Installer App
+    installer_zip = os.path.join(bundles_dir, "StardewThaiInstaller-Mac.zip")
+    if os.path.exists(installer_zip):
+        print(f"\n📦 Processing Installer: StardewThaiInstaller (Mac)")
+        base_tag_name = "installer-mac-v1.0.0"
+        tag_name = base_tag_name
+        rev = 1
+        
+        if tag_exists(base_tag_name):
+            while tag_exists(f"{base_tag_name}-rev{rev}"):
+                rev += 1
+            tag_name = f"{base_tag_name}-rev{rev}"
+            print(f"  ✨ Updates detected! Creating new revision: {tag_name}")
+        else:
+            print(f"  🚀 New version detected! Preparing release: {tag_name}")
+            
+        title = "Stardew Valley Thai Installer (Mac App)"
+        notes = "แอปพลิเคชันติดตั้งม็อดแปลภาษาไทยสำหรับผู้ใช้ Mac\n- ใช้งานง่ายแค่ดับเบิลคลิกเปิด\n- ไม่ต้องลง Python หรือรันสคริปต์ผ่าน Terminal"
+        
+        success, _ = run_command(['git', 'tag', tag_name], dry_run=args.dry_run)
+        if success:
+            success, _ = run_command(['git', 'push', 'origin', tag_name], dry_run=args.dry_run)
+            if success:
+                gh_cmd = [
+                    'gh', 'release', 'create', tag_name, installer_zip,
+                    '--title', title,
+                    '--notes', notes
+                ]
+                success, _ = run_command(gh_cmd, dry_run=args.dry_run)
+                if success and not args.dry_run:
+                    print(f"  ✅ Successfully released Installer {tag_name}!")
+
 if __name__ == '__main__':
     main()

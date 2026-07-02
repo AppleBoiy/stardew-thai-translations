@@ -27,4 +27,5 @@ fix*.py
 
 # Build Outputs / Release Zips
 bundles/
+StardewThaiInstaller.app/
 mods/*/README.md
