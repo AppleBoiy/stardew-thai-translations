@@ -13,8 +13,12 @@
 | **[Convenient Inventory](https://www.nexusmods.com/stardewvalley/mods/10384)** | gaussfire | 1.6.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/10384) |
 | **[Deluxe Journal](https://www.nexusmods.com/stardewvalley/mods/43805)** | kauf0 | 1.4.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/43805) |
 | **[Farm Type Manager (FTM)](https://www.nexusmods.com/stardewvalley/mods/3231)** | Esca | 1.26.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3231) |
-| **[GI Extra locations - ContentPatcher](#)** | mistyspring | 1.5.1 | ⏳ รอแปล | - |
+| **[[CP] GI Extra Locations - Redux](https://www.nexusmods.com/stardewvalley/mods/42648)** | mistyspring | 1.5.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/42648) |
 | **[Item extensions](https://www.nexusmods.com/stardewvalley/mods/20357)** | mistyspring | 1.16.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/20357) |
+| **[Pick Forge Enchantment](https://www.nexusmods.com/stardewvalley/mods/22707)** | Dragoon23 | 1.0.8 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/22707) |
+| **[Quest Helper](https://www.nexusmods.com/stardewvalley/mods/41150)** | aedenthorn | 0.3.3 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/41150) |
+| **[Relocate Buildings And Farm Animals](https://www.nexusmods.com/stardewvalley/mods/20606)** | mouahrara | 1.0.3 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/20606) |
+| **[Sitting Restores Energy](https://www.nexusmods.com/stardewvalley/mods/42891)** | Dylan James | 0.0.8 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/42891) |
 | **[StardewHack](https://www.nexusmods.com/stardewvalley/mods/3213)** | bcmpinc | 7.4 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3213) |
 | **[TDIT - Portraits for Extras](https://www.nexusmods.com/stardewvalley/mods/35358)** | cresolyn & Dolphin Is Not a Fish | 1.3.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/35358) |
 | **[Tiny Totem Statue Obelisks](https://www.nexusmods.com/stardewvalley/mods/23118)** | JennaJuffuffles | 2.2.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/23118) |
@@ -42,11 +46,15 @@
 * **Khloe Leclair** สำหรับ *Better Crafting*
 * **gaussfire** สำหรับ *Convenient Inventory*
 * **kauf0** สำหรับ *Deluxe Journal*
+* **Dragoon23** สำหรับ *Pick Forge Enchantment*
+* **Dylan James** สำหรับ *Sitting Restores Energy*
 * **Esca** สำหรับ *Farm Type Manager (FTM)*
-* **mistyspring** สำหรับ *GI Extra locations - ContentPatcher* และ *Item extensions*
+* **mistyspring** สำหรับ *[CP] GI Extra Locations - Redux* และ *Item extensions*
+* **mouahrara** สำหรับ *Relocate Buildings And Farm Animals*
 * **Rafseazz** สำหรับ *Ridgeside Village Seasonal Outfits*
 * **bcmpinc** สำหรับ *StardewHack* และ *Wear More Rings*
 * **DaisyNiko** สำหรับ *Sword & Sorcery*
+* **aedenthorn** สำหรับ *Quest Helper*
 * **cresolyn & Dolphin Is Not a Fish** สำหรับ *TDIT - Portraits for Extras*
 * **JennaJuffuffles** สำหรับ *Tiny Totem Statue Obelisks*
 * **mushymato** สำหรับ *TrinketTinker*

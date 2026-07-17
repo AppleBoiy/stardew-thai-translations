@@ -1,0 +1,5 @@
+{
+	"RelocateAnimalMenu.ChooseLocation": "คุณต้องการย้ายสัตว์ไปที่ไหน?",
+	"RelocateBuildingMenu.ChooseLocation": "คุณต้องการย้ายสิ่งปลูกสร้างไปที่ไหน?",
+	"RelocateBuildingMessage.CannotRelocate": "สิ่งปลูกสร้างนี้ไม่สามารถย้ายไปที่อื่นได้"
+}

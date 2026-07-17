@@ -5,7 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-07-18
+
+### Added
+- Added full Thai translation for **[CP] GI Extra Locations - Redux** (v1.5.1) by mistyspring.
+  - ✅ บทสนทนาของชาวเมือง **ฮาวี** ครบทุก heart event (2H–12H)
+  - ✅ ไอเทมใหม่ ปลาใหม่ ของใช้ และอาหาร
+  - ✅ สถานที่ สัตว์ฟาร์ม และสัตว์ประหลาด
+  - ✅ Bundle, Special Orders, Mail, Quest
+  - ✅ ตั้งค่า (Config) และ UI ทั้งหมด
+- Added full Thai translation for **Pick Forge Enchantment** (v1.0.8) by Dragoon23.
+- Added full Thai translation for **Quest Helper** (v0.3.3) by aedenthorn.
+- Added full Thai translation for **Relocate Buildings And Farm Animals** (v1.0.3) by mouahrara.
+- Added full Thai translation for **Sitting Restores Energy** (v0.0.8) by Dylan James.
+- Added cover image for GI Extra Locations - Redux (`covers/cover_gi_extra_locations_redux.png`)
+- Added `nexus_doc.txt` template support in `create_mod_docs.py` (BBCode format for Nexus Mods)
+- Added `nexus_doc.txt` to `.gitignore` (auto-generated file)
+
 ## [1.1.0] - 2026-07-01
+
 
 ### Added
 - Added partial Thai translation (~41%) for **Sword & Sorcery** by DaisyNiko.

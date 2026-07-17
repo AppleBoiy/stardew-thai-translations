@@ -1,0 +1,15 @@
+{
+    "DylanJames.Stamina.Config.Section.Gameplay": "การตั้งค่าระบบเกมเพลย์",
+    "DylanJames.Stamina.Config.EnergyPerSecond.Name": "การฟื้นฟูพลังงาน",
+    "DylanJames.Stamina.Config.EnergyPerSecond.Tooltip": "จำนวนพลังงานที่ฟื้นฟูในแต่ละช่วงเวลาขณะนั่ง",
+    "DylanJames.Stamina.Config.TickRateSeconds.Name": "อัตราการฟื้นฟู (วินาที)",
+    "DylanJames.Stamina.Config.TickRateSeconds.Tooltip": "เวลาเป็นวินาทีระหว่างการฟื้นฟูพลังงานแต่ละครั้งขณะนั่ง",
+    "DylanJames.Stamina.Config.MaxEnergyRecovery.Name": "การฟื้นฟูพลังงานสูงสุด (เปอร์เซ็นต์)",
+    "DylanJames.Stamina.Config.MaxEnergyRecovery.Tooltip": "เปอร์เซ็นต์สูงสุดของพลังงานรวมที่คุณสามารถฟื้นฟูได้ด้วยการนั่ง",
+    "DylanJames.Stamina.Config.Section.Location": "การตั้งค่าสถานที่",
+    "DylanJames.Stamina.Config.EnableIndoors.Name": "เปิดใช้งานในร่ม",
+    "DylanJames.Stamina.Config.EnableIndoors.Tooltip": "กำหนดว่าจะฟื้นฟูพลังงานเมื่อนั่งในร่มหรือไม่",
+    "DylanJames.Stamina.Config.EnableOutdoors.Name": "เปิดใช้งานกลางแจ้ง",
+    "DylanJames.Stamina.Config.EnableOutdoors.Tooltip": "กำหนดว่าจะฟื้นฟูพลังงานเมื่อนั่งกลางแจ้งหรือไม่",
+    "DylanJames.Stamina.Config.Note.Text": "หน้านี้มีไว้สำหรับสายเนิร์ด ปรับแต่งการตั้งค่าเหล่านี้เฉพาะเมื่อคุณเข้าใจความหมายและต้องการปรับสมดุลม็อดด้วยตัวคุณเอง หากตั้งค่าผิดพลาด ให้คลิกที่ข้อความ 'ค่าเริ่มต้น' ด้านล่างของหน้าจอ"
+}
