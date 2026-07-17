@@ -127,7 +127,7 @@ def main():
 
         def add_common_files(zipf):
             for f in th_folder_files:
-                arcname = os.path.relpath(f, mods_dir)
+                arcname = os.path.relpath(f, mod_path)
                 zipf.write(f, arcname)
                 print(f"  Added {arcname}")
             readme = generate_readme_text(actual_name, author, nexus_url)
@@ -139,7 +139,7 @@ def main():
             print(f"Creating {zip_path}...")
             with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
                 add_common_files(zipf)
-                arcname = os.path.relpath(base_th, mods_dir)
+                arcname = os.path.relpath(base_th, mod_path)
                 zipf.write(base_th, os.path.join(os.path.dirname(arcname), 'th.json'))
                 print(f"  Added th.json")
 
@@ -148,7 +148,7 @@ def main():
             zip_path = os.path.join(bundles_dir, f"{mod_name} ({variant_name}) - Thai Translation.zip")
             print(f"Creating {zip_path}...")
 
-            ext_arcname = os.path.relpath(ext_path, mods_dir)
+            ext_arcname = os.path.relpath(ext_path, mod_path)
             i18n_dir = os.path.dirname(ext_arcname)
 
             with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
