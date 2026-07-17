@@ -13,7 +13,7 @@
 | **[Convenient Inventory](https://www.nexusmods.com/stardewvalley/mods/10384)** | gaussfire | 1.6.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/10384) |
 | **[Deluxe Journal](https://www.nexusmods.com/stardewvalley/mods/43805)** | kauf0 | 1.4.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/43805) |
 | **[Farm Type Manager (FTM)](https://www.nexusmods.com/stardewvalley/mods/3231)** | Esca | 1.26.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/3231) |
-| **[[CP] GI Extra Locations - Redux](https://www.nexusmods.com/stardewvalley/mods/42648)** | mistyspring | 1.5.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/42648) |
+| **[GI Extra Locations - Redux](https://raw.githubusercontent.com/AppleBoiy/stardew-thai-translations/main/bundles/GI%20Extra%20Locations%20-%20Redux%20-%20Thai%20Translation.zip)** | mistyspring | 1.5.1 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/42648) |
 | **[Item extensions](https://www.nexusmods.com/stardewvalley/mods/20357)** | mistyspring | 1.16.0 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/20357) |
 | **[Pick Forge Enchantment](https://www.nexusmods.com/stardewvalley/mods/22707)** | Dragoon23 | 1.0.8 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/22707) |
 | **[Quest Helper](https://www.nexusmods.com/stardewvalley/mods/41150)** | aedenthorn | 0.3.3 | ✅ เสร็จสมบูรณ์ | [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/41150) |
