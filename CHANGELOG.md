@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `nexus_doc.txt` template support in `create_mod_docs.py` (BBCode format for Nexus Mods)
 - Added `nexus_doc.txt` to `.gitignore` (auto-generated file)
 
+### Fixed
+- Fixed `GI Extra Locations - Redux` mod name format in README.md to accurately match group mod name.
+- Fixed archive folder structure generation in `create_bundles.py` to correctly retain top-level wrapper folder for Group mods, matching the original Nexus format.
+
 ## [1.1.0] - 2026-07-01
 
 
